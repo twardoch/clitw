@@ -1,0 +1,35 @@
+# this_file: src_docs/mkdocs.yaml
+site_name: clitw
+site_url: https://twardoch.github.io/clitw/
+site_description: Find a service, install its command, and call it from a shell or Python.
+docs_dir: md
+site_dir: ../docs
+theme:
+  name: materialx
+  font: false
+  icon:
+    logo: material/console
+  features:
+    - content.code.copy
+    - navigation.footer
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle: {icon: material/weather-night, name: Switch to dark mode}
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle: {icon: material/weather-sunny, name: Switch to light mode}
+plugins:
+  - materialx/search
+markdown_extensions:
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - Start here: index.md
+  - OpenAPI and MCP: integrations.md
+  - Python and agents: automation.md
+  - Groups and diagnostics: operations.md

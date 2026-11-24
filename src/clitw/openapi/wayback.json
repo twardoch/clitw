@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.3",
+  "x-this-file": "src/clitw/openapi/wayback.json",
+  "info": {
+    "title": "Internet Archive Wayback Availability API",
+    "version": "1.0",
+    "description": "Check the closest archived snapshot for a URL."
+  },
+  "externalDocs": {"url": "https://archive.org/help/wayback_api.php"},
+  "servers": [{"url": "https://archive.org"}],
+  "paths": {
+    "/wayback/available": {
+      "get": {
+        "operationId": "get-wayback-v1-available",
+        "summary": "Find an archived snapshot",
+        "parameters": [
+          {"name": "url", "in": "query", "required": true, "schema": {"type": "string"}},
+          {"name": "timestamp", "in": "query", "schema": {"type": "string"}},
+          {"name": "callback", "in": "query", "schema": {"type": "string"}},
+          {"name": "timeout", "in": "query", "schema": {"type": "number"}},
+          {"name": "closest", "in": "query", "schema": {"type": "string"}},
+          {"name": "status_code", "in": "query", "schema": {"type": "integer"}},
+          {"name": "tag", "in": "query", "schema": {"type": "string"}}
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability information and matching archived snapshots.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {"url": {"type": "string"}, "archived_snapshots": {"type": "object"}}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

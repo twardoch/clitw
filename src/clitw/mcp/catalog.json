@@ -1,0 +1,350 @@
+{
+  "mcx-aimlapi-mcpk": {
+    "legacy": "mcx-aimlapi",
+    "auth_mode": "key",
+    "auth_env": "AIMLAPI_KEY",
+    "description": "Explore AI/ML API models and services.",
+    "docs": "https://aimlapi.com/",
+    "read": [
+      "ping"
+    ],
+    "url": "https://mcp.aimlapi.com/mcp"
+  },
+  "mcx-amplitude-analytics-mcpo": {
+    "legacy": "mcx-amplitude-analytics",
+    "auth_mode": "oauth",
+    "description": "Access Amplitude projects and product analytics in the US region.",
+    "docs": "https://amplitude.com/docs/amplitude-ai/amplitude-mcp/service-accounts",
+    "read": [
+      "get-amplitude-context"
+    ],
+    "url": "https://mcp.amplitude.com/mcp"
+  },
+  "mcx-brevo-email-mcpk": {
+    "legacy": "mcx-brevo-email",
+    "auth_mode": "key",
+    "auth_env": "BREVO_MCP_API_KEY",
+    "description": "Work with Brevo contacts, campaigns and deals.",
+    "docs": "https://developers.brevo.com/docs/mcp-protocol",
+    "url": "https://mcp.brevo.com/v1/brevo/mcp"
+  },
+  "mcx-brightdata-mcpk": {
+    "legacy": "mcx-brightdata",
+    "auth_mode": "key",
+    "auth_env": "BRIGHTDATA_API_KEY",
+    "auth_style": "query:token",
+    "description": "Search the web and retrieve public page content with Bright Data.",
+    "docs": "https://github.com/brightdata/brightdata-mcp",
+    "url": "https://mcp.brightdata.com/mcp"
+  },
+  "mcx-cloudflare-api-mcpo": {
+    "legacy": "mcx-cloudflare-api",
+    "auth_mode": "oauth",
+    "description": "Access Cloudflare APIs.",
+    "docs": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "url": "https://mcp.cloudflare.com/mcp"
+  },
+  "mcx-cloudflare-autorag-mcpo": {
+    "legacy": "mcx-cloudflare-autorag",
+    "auth_mode": "oauth",
+    "description": "Query Cloudflare AutoRAG instances through its deprecated product-specific server.",
+    "docs": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "url": "https://autorag.mcp.cloudflare.com/mcp"
+  },
+  "mcx-cloudflare-browser-mcpo": {
+    "legacy": "mcx-cloudflare-browser",
+    "auth_mode": "oauth",
+    "description": "Access Cloudflare Browser Run.",
+    "docs": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "url": "https://browser.mcp.cloudflare.com/mcp"
+  },
+  "mcx-cloudflare-dns-mcpo": {
+    "legacy": "mcx-cloudflare-dns",
+    "auth_mode": "oauth",
+    "description": "Read Cloudflare DNS analytics through its deprecated product-specific server.",
+    "docs": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "url": "https://dns-analytics.mcp.cloudflare.com/mcp"
+  },
+  "mcx-cloudflare-docs-mcp": {
+    "legacy": "mcx-cloudflare-docs",
+    "auth_mode": "anonymous",
+    "description": "Read Cloudflare product documentation.",
+    "docs": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "read": [
+      "migrate-pages-to-workers-guide"
+    ],
+    "url": "https://docs.mcp.cloudflare.com/mcp"
+  },
+  "mcx-cloudinary-asset-mgmt-mcpo": {
+    "legacy": "mcx-cloudinary-asset-mgmt",
+    "auth_mode": "oauth",
+    "description": "Manage Cloudinary media assets and look up transformation options.",
+    "docs": "https://github.com/cloudinary/mcp-servers",
+    "read": [
+      "get-tx-reference"
+    ],
+    "url": "https://asset-management.mcp.cloudinary.com/mcp"
+  },
+  "mcx-cloudinary-env-config-mcpo": {
+    "legacy": "mcx-cloudinary-env-config",
+    "auth_mode": "oauth",
+    "description": "Manage Cloudinary product environment settings.",
+    "docs": "https://github.com/cloudinary/mcp-servers",
+    "url": "https://environment-config.mcp.cloudinary.com/mcp"
+  },
+  "mcx-cloudinary-smd-mcpo": {
+    "legacy": "mcx-cloudinary-smd",
+    "auth_mode": "oauth",
+    "description": "Manage Cloudinary structured metadata fields.",
+    "docs": "https://github.com/cloudinary/mcp-servers",
+    "url": "https://structured-metadata.mcp.cloudinary.com/mcp"
+  },
+  "mcx-context7-mcpk": {
+    "legacy": "mcx-context7",
+    "auth_mode": "key",
+    "auth_env": "CONTEXT7_API_KEY",
+    "auth_style": "CONTEXT7_API_KEY",
+    "description": "Find documentation for software libraries.",
+    "docs": "https://github.com/upstash/context7",
+    "url": "https://mcp.context7.com/mcp"
+  },
+  "mcx-deepwiki-github-search-mcp": {
+    "legacy": "mcx-deepwiki-github-search",
+    "auth_mode": "anonymous",
+    "description": "Read documentation for public GitHub repositories.",
+    "docs": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+    "read": [
+      "read-wiki-structure",
+      "--repo-name",
+      "modelcontextprotocol/python-sdk"
+    ],
+    "url": "https://mcp.deepwiki.com/mcp"
+  },
+  "mcx-exa-search-mcpk": {
+    "legacy": "mcx-exa-search",
+    "auth_mode": "key",
+    "auth_env": "EXAAI_API_KEY",
+    "auth_style": "x-api-key",
+    "description": "Search the web with Exa.",
+    "docs": "https://exa.ai/mcp",
+    "url": "https://mcp.exa.ai/mcp"
+  },
+  "mcx-firecrawl-mcpk": {
+    "legacy": "mcx-firecrawl",
+    "auth_mode": "key",
+    "auth_env": "FIRECRAWL_API_KEY",
+    "description": "Search the web and extract page content with Firecrawl.",
+    "docs": "https://github.com/firecrawl/firecrawl-mcp-server",
+    "url": "https://mcp.firecrawl.dev/v2/mcp"
+  },
+  "mcx-gmail-mcpo": {
+    "legacy": "mcx-gmail",
+    "auth_mode": "oauth",
+    "description": "Access Gmail messages and labels with Google Workspace OAuth.",
+    "docs": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+    "oauth": {
+      "client_id": "${env:GOOGLE_MCP_CLIENT_ID}",
+      "client_secret": "${env:GOOGLE_MCP_CLIENT_SECRET}",
+      "scopes": [
+        "https://www.googleapis.com/auth/gmail.metadata"
+      ]
+    },
+    "url": "https://gmailmcp.googleapis.com/mcp/v1"
+  },
+  "mcx-google-drive-mcpo": {
+    "legacy": "mcx-google-drive",
+    "auth_mode": "oauth",
+    "description": "Access Google Drive files with Google Workspace OAuth.",
+    "docs": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+    "oauth": {
+      "client_id": "${env:GOOGLE_MCP_CLIENT_ID}",
+      "client_secret": "${env:GOOGLE_MCP_CLIENT_SECRET}",
+      "scopes": [
+        "https://www.googleapis.com/auth/drive.metadata.readonly"
+      ]
+    },
+    "url": "https://drivemcp.googleapis.com/mcp/v1"
+  },
+  "mcx-heygen-mcpo": {
+    "legacy": "mcx-heygen",
+    "auth_mode": "oauth",
+    "description": "Access HeyGen avatar and video tools.",
+    "docs": "https://www.heygen.com/model-context-protocol",
+    "url": "https://mcp.heygen.com/mcp/v1"
+  },
+  "mcx-higgsfield-mcpo": {
+    "legacy": "mcx-higgsfield",
+    "auth_mode": "oauth",
+    "description": "Explore Higgsfield models and creative tools.",
+    "docs": "https://higgsfield.ai/enterprise-help-center/platform/integrations",
+    "read": [
+      "list-website-categories"
+    ],
+    "url": "https://mcp.higgsfield.ai/mcp"
+  },
+  "mcx-huggingface-mcpk": {
+    "legacy": "mcx-huggingface",
+    "auth_mode": "key",
+    "auth_env": "HF_TOKEN",
+    "description": "Explore Hugging Face models, datasets and Spaces.",
+    "docs": "https://github.com/huggingface/hf-mcp-server",
+    "read": [
+      "hub-repo-details",
+      "--repo-ids",
+      "[\"google-bert/bert-base-uncased\"]"
+    ],
+    "url": "https://huggingface.co/mcp"
+  },
+  "mcx-iura-io-mcpk": {
+    "legacy": "mcx-iura-io",
+    "auth_mode": "key",
+    "auth_env": "IURA_IO_MCP_KEY",
+    "description": "Access Polish legal databases through IURA.",
+    "docs": "https://iura.io/en/documentation/claude-desktop/",
+    "url": "https://mcp.iura.io/"
+  },
+  "mcx-keenable-mcpk": {
+    "legacy": "mcx-keenable",
+    "auth_mode": "key",
+    "auth_env": "KEENABLE_API_KEY",
+    "auth_style": "X-API-Key",
+    "description": "Search the web and fetch page contents with Keenable.",
+    "docs": "https://docs.keenable.ai/mcp-server",
+    "url": "https://api.keenable.ai/mcp"
+  },
+  "mcx-langsearch-mcpk": {
+    "legacy": "mcx-langsearch",
+    "auth_mode": "key",
+    "auth_env": "LANGSEARCH_API_KEY",
+    "description": "Search the web using LangSearch.",
+    "docs": "https://github.com/langsearch-ai/langsearch",
+    "url": "https://mcp.langsearch.com/mcp"
+  },
+  "mcx-magnific-mcpo": {
+    "legacy": "mcx-magnific",
+    "auth_mode": "oauth",
+    "description": "Explore Magnific image, video and audio tools.",
+    "docs": "https://www.magnific.com/ai/docs/magnific-mcp",
+    "read": [
+      "images-models-list"
+    ],
+    "url": "https://mcp.magnific.com"
+  },
+  "mcx-parallel-search-mcpk": {
+    "legacy": "mcx-parallel-search",
+    "auth_mode": "key",
+    "auth_env": "PARALLEL_API_KEY",
+    "description": "Search the web with Parallel.",
+    "docs": "https://docs.parallel.ai/integrations/mcp/search-mcp",
+    "url": "https://search.parallel.ai/mcp-oauth"
+  },
+  "mcx-parallel-task-mcpk": {
+    "legacy": "mcx-parallel-task",
+    "auth_mode": "key",
+    "auth_env": "PARALLEL_API_KEY",
+    "description": "Access Parallel research tasks.",
+    "docs": "https://docs.parallel.ai/integrations/mcp/task-mcp",
+    "url": "https://task-mcp.parallel.ai/mcp"
+  },
+  "mcx-pika-mcpo": {
+    "legacy": "mcx-pika",
+    "auth_mode": "oauth",
+    "description": "Explore Pika creative apps and tools.",
+    "docs": "https://pika.art/mcp",
+    "read": [
+      "list-apps"
+    ],
+    "url": "https://mcp.pika.art/mcp"
+  },
+  "mcx-pollo-mcpo": {
+    "legacy": "mcx-pollo",
+    "auth_mode": "oauth",
+    "description": "Explore Pollo image, video and audio models.",
+    "docs": "https://pollo.ai/mcp",
+    "read": [
+      "list-models"
+    ],
+    "url": "https://mcp.pollo.ai/mcp"
+  },
+  "mcx-runway-mcpo": {
+    "legacy": "mcx-runway",
+    "auth_mode": "oauth",
+    "description": "Explore Runway media tools.",
+    "docs": "https://help.runwayml.com/hc/en-us/articles/51931843164691-Connecting-to-Runway-MCP",
+    "read": [
+      "get-skill",
+      "--name",
+      "resize-image"
+    ],
+    "url": "https://mcp.runwayml.com/mcp"
+  },
+  "mcx-runwayml-dev-mcpo": {
+    "legacy": "mcx-runwayml-dev",
+    "auth_mode": "oauth",
+    "description": "Access the Runway developer portal.",
+    "docs": "https://docs.dev.runwayml.com/guides/mcp/",
+    "read": [
+      "get-workflows-setup-guide"
+    ],
+    "url": "https://dev.runwayml.com/mcp"
+  },
+  "mcx-searchcode-mcp": {
+    "legacy": "mcx-searchcode",
+    "auth_mode": "anonymous",
+    "description": "Search and inspect code in public Git repositories.",
+    "docs": "https://searchcode.com/",
+    "url": "https://api.searchcode.com/v1/mcp"
+  },
+  "mcx-stripe-mcpo": {
+    "legacy": "mcx-stripe",
+    "auth_mode": "oauth",
+    "description": "Connect to Stripe account tools.",
+    "docs": "https://docs.stripe.com/mcp",
+    "url": "https://mcp.stripe.com"
+  },
+  "mcx-suno-mcpo": {
+    "legacy": "mcx-suno",
+    "auth_mode": "oauth",
+    "description": "Access Suno music creation tools.",
+    "docs": "https://help.suno.com/en/articles/14551425",
+    "url": "https://api.suno.com/mcp"
+  },
+  "mcx-tavily-search-mcpk": {
+    "legacy": "mcx-tavily-search",
+    "auth_mode": "key",
+    "auth_env": "TAVILY_API_KEY",
+    "auth_style": "query:tavilyApiKey",
+    "description": "Search and extract web content using Tavily.",
+    "docs": "https://docs.tavily.com/documentation/mcp",
+    "url": "https://mcp.tavily.com/mcp"
+  },
+  "mcx-webflow-mcpo": {
+    "legacy": "mcx-webflow",
+    "auth_mode": "oauth",
+    "description": "Work with Webflow sites, content and collections.",
+    "docs": "https://developers.webflow.com/mcp/reference/how-it-works",
+    "url": "https://mcp.webflow.com/mcp"
+  },
+  "mcx-webflow-dev-mcp": {
+    "legacy": "mcx-webflow-dev",
+    "auth_mode": "anonymous",
+    "description": "Search the Webflow developer documentation.",
+    "docs": "https://developers.webflow.com/mcp/installing/documentation-server",
+    "read": [
+      "search-docs",
+      "--query",
+      "authentication",
+      "--top-k",
+      "1"
+    ],
+    "url": "https://developers.webflow.com/api/fern-docs/mcp"
+  },
+  "mcx-youcom-search-mcpk": {
+    "legacy": "mcx-youcom-search",
+    "auth_mode": "key",
+    "auth_env": "YDC_API_KEY",
+    "description": "Search the web with You.com.",
+    "docs": "https://you.com/docs/agents/mcp-server",
+    "url": "https://api.you.com/mcp"
+  }
+}

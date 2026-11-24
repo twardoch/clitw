@@ -1,0 +1,24 @@
+#!/bin/sh
+# this_file: scripts/auto-gittag-semver
+set -eu
+
+usage() {
+    echo 'Usage: scripts/auto-gittag-semver [--apply] [patch|minor|major]'
+    echo 'Preview the next vMAJOR.MINOR.PATCH. --apply tags the current clean commit locally.'
+}
+
+mode=--dry-run
+case ${1:-} in
+    --help|-h) usage; exit 0 ;;
+    --apply) mode=--dry-run=False; shift ;;
+esac
+bump=${1:-patch}
+case "$bump" in
+    patch|minor|major) ;;
+    *) usage >&2; exit 2 ;;
+esac
+[ "$#" -le 1 ] || { usage >&2; exit 2; }
+
+cd "$(dirname "$0")/.."
+exec uvx --from gitnextver==1.0.5 gitnextver "$mode" \
+    --commit=False --pull=False --push=False --initial=v0.1.0 --bump="$bump"
