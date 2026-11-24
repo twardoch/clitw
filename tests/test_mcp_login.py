@@ -11,8 +11,8 @@ from pathlib import Path
 
 import pytest
 
-from clitw import mcp
-from clitw.mcp import login
+from clitwy import mcp
+from clitwy.mcp import login
 
 
 class Terminal(io.StringIO):
@@ -217,7 +217,7 @@ def test_native_google_authorization_url_honors_exact_scope(tmp_path, monkeypatc
     import mcp2cli
     from mcp.shared.auth import AuthorizationCodeResult
 
-    from clitw.mcp.oauth import preserve_requested_scope
+    from clitwy.mcp.oauth import preserve_requested_scope
 
     monkeypatch.setattr(mcp2cli, "OAUTH_DIR", tmp_path / "oauth")
     url = "https://gmailmcp.googleapis.com/mcp/v1"
@@ -288,7 +288,7 @@ def test_auth_mode_separates_key_oauth_and_anonymous(tmp_path, monkeypatch, mode
 
     import mcp2cli
 
-    from clitw.mcp import config, runtime
+    from clitwy.mcp import config, runtime
 
     monkeypatch.setattr(os, "environ", os.environ.copy())
     url = "https://mcp.example/mcp"
@@ -335,9 +335,9 @@ def test_bundled_google_clients_share_saved_app_keys_but_distinct_scopes(tmp_pat
 
     import mcp2cli
 
-    from clitw import credentials
-    from clitw.mcp import config, runtime
-    from clitw.paths import registry_dir
+    from clitwy import credentials
+    from clitwy.mcp import config, runtime
+    from clitwy.paths import registry_dir
 
     monkeypatch.setattr(os, "environ", os.environ.copy())
     monkeypatch.setenv("CLITW_HOME", str(tmp_path))
@@ -377,7 +377,7 @@ def test_bundled_google_clients_share_saved_app_keys_but_distinct_scopes(tmp_pat
 
 
 def test_nonexpiring_native_grant_works_only_at_its_scoped_endpoint(tmp_path):
-    from clitw.mcp.oauth import cached_bearer
+    from clitwy.mcp.oauth import cached_bearer
 
     endpoint = "https://scope.example/mcp"
     item = login.Binding("mcx-scope-mcpo", (), endpoint, cache_dir=str(tmp_path))
@@ -392,7 +392,7 @@ def test_nonexpiring_native_grant_works_only_at_its_scoped_endpoint(tmp_path):
 
 
 def test_only_exact_documented_query_flag_and_path_are_public():
-    from clitw.mcp.config import PUBLIC_OAUTH_URLS
+    from clitwy.mcp.config import PUBLIC_OAUTH_URLS
 
     assert PUBLIC_OAUTH_URLS == login.PUBLIC_OAUTH_URLS
     assert all(login.public_https(url) for url in PUBLIC_OAUTH_URLS)
@@ -404,7 +404,7 @@ def test_custom_key_reads_only_explicit_configured_credential(tmp_path, monkeypa
 
     import mcp2cli
 
-    from clitw.mcp import config, runtime
+    from clitwy.mcp import config, runtime
 
     monkeypatch.setattr(os, "environ", os.environ.copy())
     monkeypatch.setenv("TEST_CUSTOM_MCP_KEY", "fixture-only")

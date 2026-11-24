@@ -5,7 +5,7 @@ import json
 
 import pytest
 
-from clitw import service_cli
+from clitwy import service_cli
 
 
 @pytest.fixture

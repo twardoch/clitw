@@ -4,6 +4,10 @@ this_file: CHANGELOG.md
 
 # Changelog
 
+## 1.0.3
+
+- Renamed the Python distribution and import package to `clitwy`. Install it with `uv tool install clitwy` and import `catalog` and `run` from `clitwy`. The `tw` command and the `com.twardoch.clitw` service metadata directory retain their names.
+
 ## 1.0.2
 
 - Tagged web research providers so the documented `tw search --tag research` example returns matches in a clean installation.

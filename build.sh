@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this_file: build.sh
 #
-# Build clitw sdist + wheel into dist/. hatch-vcs takes the version from
+# Build clitwy sdist + wheel into dist/. hatch-vcs takes the version from
 # the vX.Y.Z git tag on HEAD. A dirty tree or an untagged HEAD would give a
 # .devN+g<sha> version that PyPI rejects, so this refuses to build one unless
 # ALLOW_DEV=1. Make a release tag with ./release.sh. An optional build.post.sh

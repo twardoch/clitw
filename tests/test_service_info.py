@@ -7,9 +7,9 @@ import os
 import pytest
 import yaml
 
-from clitw import service_info as si
-from clitw.mcp.config import presets
-from clitw.openapi.catalogue import providers
+from clitwy import service_info as si
+from clitwy.mcp.config import presets
+from clitwy.openapi.catalogue import providers
 
 
 @pytest.fixture

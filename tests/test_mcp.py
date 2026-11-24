@@ -8,8 +8,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from clitw import mcp
-from clitw.paths import provider_argv, provider_path, registry_dir
+from clitwy import mcp
+from clitwy.paths import provider_argv, provider_path, registry_dir
 
 
 @pytest.fixture
@@ -186,7 +186,7 @@ def test_cross_origin_redirect_does_not_forward_configured_header(isolated, upst
 
 
 def test_probe_runs_only_verified_read_recipe_at_matching_endpoint(isolated, upstream, monkeypatch):
-    from clitw.mcp import probe
+    from clitwy.mcp import probe
 
     base, calls = upstream
     name = "mcx-approved-mcp"
@@ -208,7 +208,7 @@ def test_saved_refresh_uses_registered_issuer_and_never_registers(isolated, monk
     import httpx2
     import mcp2cli
 
-    from clitw.mcp.oauth import cached_bearer
+    from clitwy.mcp.oauth import cached_bearer
 
     url = "https://resource.example/mcp"
     issuer = "https://issuer.example"
@@ -274,7 +274,7 @@ def test_explicit_endpoint_modes_coexist_and_preserve_discovery(isolated, upstre
 
 
 def test_configured_auth_preserves_group_and_bundled_aliases(isolated):
-    from clitw.mcp.config import binding_auth, legacy_aliases, read_config, resolve_name
+    from clitwy.mcp.config import binding_auth, legacy_aliases, read_config, resolve_name
 
     assert binding_auth({"oauth": {"pkce_enabled": True}}, "") == "anonymous"
     assert binding_auth({"oauth": {"client_id": "example"}}, "") == "oauth"
@@ -290,8 +290,8 @@ def test_configured_auth_preserves_group_and_bundled_aliases(isolated):
 
 def old_registration(name, new, config, *, hold=False):
     """Build the previous release's registry and launcher format in the temporary CLITW_HOME."""
-    from clitw.mcp.config import read_config
-    from clitw.mcp.install import held_registration, registration
+    from clitwy.mcp.config import read_config
+    from clitwy.mcp.install import held_registration, registration
 
     conf, rows = read_config(config, name)
     row = rows[new]
@@ -311,7 +311,7 @@ def old_registration(name, new, config, *, hold=False):
 
 @pytest.mark.parametrize("changed", ["", "old", "destination", "pin"])
 def test_offline_migration_preserves_ownership_and_endpoint(isolated, upstream, changed):
-    from clitw.builders import mcp_main
+    from clitwy.builders import mcp_main
 
     base, calls = upstream
     cfg = isolated / "mcp.json"

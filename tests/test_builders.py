@@ -12,8 +12,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from clitw.builders import mcp_main, openapi_main
-from clitw.paths import home, provider_path, registry_dir
+from clitwy.builders import mcp_main, openapi_main
+from clitwy.paths import home, provider_path, registry_dir
 
 
 @pytest.fixture

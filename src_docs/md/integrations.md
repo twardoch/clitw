@@ -35,7 +35,7 @@ For example, run `tw info mcx-tavily-apik`. The public rate checked on 2026-11-2
 
 ### Personal notes, tags and costs
 
-Print the path clitw will read on this machine. You can also point either command at another YAML file with `--file`.
+Print the path clitwy will read on this machine. You can also point either command at another YAML file with `--file`.
 
 ```sh
 tw info --data-path
@@ -122,7 +122,7 @@ tw mcp install --migrate-names
 
 ## Discover an OpenAPI operation
 
-Install once, then inspect the operation list and its parameters. The Wayback schema ships with clitw. Other entries can fetch a public schema during installation.
+Install once, then inspect the operation list and its parameters. The Wayback schema ships with clitwy. Other entries can fetch a public schema during installation.
 
 ```sh
 tw openapi install mcx-archive-wayback-api

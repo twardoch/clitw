@@ -9,12 +9,12 @@ from dataclasses import replace
 
 import pytest
 
-from clitw import credentials
-from clitw.mcp.install import cli_install
-from clitw.openapi.catalogue import providers
-from clitw.openapi.install import publish
-from clitw.openapi.native import execute
-from clitw.paths import home, registry_dir
+from clitwy import credentials
+from clitwy.mcp.install import cli_install
+from clitwy.openapi.catalogue import providers
+from clitwy.openapi.install import publish
+from clitwy.openapi.native import execute
+from clitwy.paths import home, registry_dir
 
 
 @pytest.fixture
@@ -101,7 +101,7 @@ def test_mcp_uses_saved_secret_for_original_preset(bindings, monkeypatch):
 
     import mcp2cli
 
-    from clitw.mcp import runtime
+    from clitwy.mcp import runtime
 
     literal = "fixture-$" + "{LITERAL}"
     credentials.save_key("AIMLAPI_KEY", literal)
@@ -171,7 +171,7 @@ def test_store_blocks_unrelated_users_from_reading_sensitive_credentials(tmp_pat
 
 
 def test_private_mcp_templates_do_not_read_central_dotenv_or_saved_key(bindings, tmp_path, monkeypatch):
-    from clitw.mcp.runtime import expand
+    from clitwy.mcp.runtime import expand
 
     credentials.save_key("AIMLAPI_KEY", "fixture-saved")
     dotfile = tmp_path / "selected.env"

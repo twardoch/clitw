@@ -18,7 +18,7 @@ def test_cli_keeps_other_plugins_and_restores_warnings(tmp_path):
     )
     program = """
 import warnings
-from clitw.mcp import runtime
+from clitwy.mcp import runtime
 def invoke(*args):
     from pydantic import BaseModel
     class Example(BaseModel):

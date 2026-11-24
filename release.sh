@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this_file: release.sh
 #
-# Release clitw: commit pending changes, bump the vX.Y.Z tag and push
+# Release clitwy: commit pending changes, bump the vX.Y.Z tag and push
 # both with `uvx gitnextver`, then build the clean tagged version (./build.sh).
 # The PyPI upload is ./publish.sh, which runs this first.
 #

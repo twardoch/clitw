@@ -35,17 +35,19 @@ def test_release_archives_ship_public_entry_points_and_license(tmp_path: Path) -
         ]
         metadata = email.message_from_bytes(archive.read(str(record)))
         project = tomllib.loads((root / "pyproject.toml").read_text())["project"]
-        assert metadata["Name"] == project["name"] and metadata["Version"]
+        assert metadata["Name"] == project["name"] == "clitwy" and metadata["Version"]
+        assert not any(path.parts[0] == "clitw" for path in wheel_paths)
+        assert any(path.as_posix().endswith("/share/clitwy/skills/clitwy/SKILL.md") for path in wheel_paths)
         assert any(dep.lower().startswith("mcp2cli") for dep in metadata.get_all("Requires-Dist", []))
         entries = configparser.ConfigParser(interpolation=None)
         entries.read_string(archive.read(str(record.with_name("entry_points.txt"))).decode())
         assert {"tw", "tw-doctor", "tw-groups"} <= entries["console_scripts"].keys()
-        assert entries["console_scripts"]["mcxadmin-build-mcp"] == "clitw.builders:mcp_main"
-        assert entries["console_scripts"]["mcxadmin-build-openapi"] == "clitw.builders:openapi_main"
-        assert entries["console_scripts"]["mcxadmin-auth"] == "clitw.cli:auth"
-        assert entries["console_scripts"]["mcxadmin-oauth"] == "clitw.mcp.login:main"
-        providers = set(json.loads(archive.read("clitw/mcp/catalog.json")))
-        rows = archive.read("clitw/openapi/catalogue.tsv").decode().splitlines()
+        assert entries["console_scripts"]["mcxadmin-build-mcp"] == "clitwy.builders:mcp_main"
+        assert entries["console_scripts"]["mcxadmin-build-openapi"] == "clitwy.builders:openapi_main"
+        assert entries["console_scripts"]["mcxadmin-auth"] == "clitwy.cli:auth"
+        assert entries["console_scripts"]["mcxadmin-oauth"] == "clitwy.mcp.login:main"
+        providers = set(json.loads(archive.read("clitwy/mcp/catalog.json")))
+        rows = archive.read("clitwy/openapi/catalogue.tsv").decode().splitlines()
         manual = set()
         for row in rows:
             if row.startswith("mcx-"):
@@ -60,7 +62,7 @@ def test_release_archives_ship_public_entry_points_and_license(tmp_path: Path) -
         assert providers == {name for name in entries["console_scripts"] if name.startswith("mcx-")}
         assert {"tw-doctor", "tw-groups"} == {name for name in entries["console_scripts"] if name.startswith("tw-")}
         assert any(path.name == "LICENSE" and path.is_relative_to(record.parent) for path in wheel_paths)
-        assert any(path.as_posix() == "clitw/__main__.py" for path in wheel_paths)
+        assert any(path.as_posix() == "clitwy/__main__.py" for path in wheel_paths)
     assert any(path.name == "LICENSE" for path in source_paths)
     for path in [*source_paths, *wheel_paths]:
         assert not path.is_absolute() and ".." not in path.parts

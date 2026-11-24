@@ -4,7 +4,7 @@ requires = ["hatchling>=1.27", "hatch-vcs>=0.4"]
 build-backend = "hatchling.build"
 
 [project]
-name = "clitw"
+name = "clitwy"
 dynamic = ["version", "scripts"]
 description = "Use MCP and OpenAPI services through named command-line tools or Python."
 readme = "README.md"
@@ -28,24 +28,24 @@ docs = ["properdocs==1.6.7", "mkdocs-materialx==10.2.3"]
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/clitw/__version__.py"
+version-file = "src/clitwy/__version__.py"
 
 [tool.hatch.metadata.hooks.custom]
 path = "hatch_build.py"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/clitw"]
+packages = ["src/clitwy"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"skills" = "share/clitw/skills"
+"skills" = "share/clitwy/skills"
 
 [tool.hatch.build.targets.sdist]
-include = ["/src/clitw", "/skills", "/src_docs", "/tests", "/scripts", "/hatch_build.py", "/pyproject.toml", "/README.md", "/CHANGELOG.md", "/DEPENDENCIES.md", "/LICENSE"]
+include = ["/src/clitwy", "/skills", "/src_docs", "/tests", "/scripts", "/hatch_build.py", "/pyproject.toml", "/README.md", "/CHANGELOG.md", "/DEPENDENCIES.md", "/LICENSE"]
 
 [tool.uv]
 cache-keys = [
   { file = "pyproject.toml" }, { file = "hatch_build.py" },
-  { file = "src/clitw/openapi/catalogue.tsv" }, { file = "src/clitw/mcp/catalog.json" },
+  { file = "src/clitwy/openapi/catalogue.tsv" }, { file = "src/clitwy/mcp/catalog.json" },
   { git = { commit = true, tags = true } },
 ]
 

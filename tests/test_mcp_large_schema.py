@@ -13,8 +13,8 @@ from mcp.client import streamable_http
 from mcp.shared import _httpx_utils
 from mcp.shared.exceptions import MCPError
 
-from clitw.mcp import login
-from clitw.mcp.sse import HIGGSFIELD_EVENT_BYTES, HIGGSFIELD_URL, higgsfield_schema_stream
+from clitwy.mcp import login
+from clitwy.mcp.sse import HIGGSFIELD_EVENT_BYTES, HIGGSFIELD_URL, higgsfield_schema_stream
 
 
 @pytest.mark.parametrize(

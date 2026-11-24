@@ -16,7 +16,7 @@ from mcp import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 from mcp.shared.auth import AuthorizationCodeResult
 
-from clitw.mcp.oauth import cached_bearer, preserve_requested_scope
+from clitwy.mcp.oauth import cached_bearer, preserve_requested_scope
 
 
 @pytest.mark.parametrize("method", ["client_secret_basic", "client_secret_post", "none"])

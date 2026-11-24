@@ -4,6 +4,10 @@ this_file: WORK.md
 
 # Implementation and verification
 
+## 2026-11-24 — clitwy package rename
+
+Updated installation instructions, Python examples and the agent skill for the `clitwy` package. Existing shell examples use `tw`. Service metadata stays under `com.twardoch.clitw`, and the repository and documentation URLs retain the `clitw` path. Verified `clitwy.catalog`, `clitwy.run` and the bundled pricing example through the renamed source package. The strict ProperDocs build passed. Checked the five generated pages, 68 local asset and navigation links, search index, compressed sitemap and links to the renamed skill.
+
 ## 2026-11-24 — Service information and search
 
 Added offline lookup for 295 service bindings across MCP and OpenAPI. Human-readable and JSON output share the same data, including tags, billing units, dated provider rates and per-field provenance. The bundled inventory includes 176 first-party pricing links and 22 numeric rates with billing units, dates and sources. Users can supply their own YAML in the platform data directory or select a file per invocation. Removed the retired LMNT default.

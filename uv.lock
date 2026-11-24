@@ -295,7 +295,7 @@ wheels = [
 ]
 
 [[package]]
-name = "clitw"
+name = "clitwy"
 source = { editable = "." }
 dependencies = [
     { name = "distlib", marker = "sys_platform == 'win32'" },

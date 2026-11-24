@@ -9,7 +9,7 @@ from hatchling.metadata.plugin.interface import MetadataHookInterface
 
 class ProviderScripts(MetadataHookInterface):
     def update(self, metadata: dict) -> None:
-        package = Path(self.root) / "src/clitw"
+        package = Path(self.root) / "src/clitwy"
         rows = (package / "openapi/catalogue.tsv").read_text(encoding="utf-8").splitlines()
         names = []
         for row in rows:
@@ -19,14 +19,14 @@ class ProviderScripts(MetadataHookInterface):
                     names.append(name)
         names.extend(json.loads((package / "mcp/catalog.json").read_text()))
         scripts = {
-            "tw": "clitw.cli:main",
-            "mcxadmin-build-mcp": "clitw.builders:mcp_main",
-            "mcxadmin-build-openapi": "clitw.builders:openapi_main",
-            "mcxadmin-auth": "clitw.cli:auth",
-            "mcxadmin-oauth": "clitw.mcp.login:main",
+            "tw": "clitwy.cli:main",
+            "mcxadmin-build-mcp": "clitwy.builders:mcp_main",
+            "mcxadmin-build-openapi": "clitwy.builders:openapi_main",
+            "mcxadmin-auth": "clitwy.cli:auth",
+            "mcxadmin-oauth": "clitwy.mcp.login:main",
         }
         for alias in [*names, "tw-groups", "tw-doctor"]:
             if alias in scripts:
                 raise ValueError(f"Duplicate console script {alias}")
-            scripts[alias] = "clitw.cli:provider_main"
+            scripts[alias] = "clitwy.cli:provider_main"
         metadata["scripts"] = scripts

@@ -32,7 +32,7 @@
     
     
       
-        <title>clitw</title>
+        <title>clitwy</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#get-started-with-clitw" class="md-skip">
+        <a href="#get-started-with-clitwy" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="clitw" class="md-header__button md-logo" aria-label="clitw" data-md-component="logo">
+    <a href="." title="clitwy" class="md-header__button md-logo" aria-label="clitwy" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg>
@@ -112,7 +112,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            clitw
+            clitwy
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -222,13 +222,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="clitw" class="md-nav__button md-logo" aria-label="clitw" data-md-component="logo">
+    <a href="." title="clitwy" class="md-nav__button md-logo" aria-label="clitwy" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg>
 
     </a>
-    clitw
+    clitwy
   </label>
   
   <ul class="md-nav__list">
@@ -300,10 +300,10 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
-  <a href="#install-from-a-checkout" class="md-nav__link">
+  <a href="#install-clitwy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install from a checkout
+        Install clitwy
       
     </span>
   </a>
@@ -448,10 +448,10 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
-  <a href="#install-from-a-checkout" class="md-nav__link">
+  <a href="#install-clitwy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install from a checkout
+        Install clitwy
       
     </span>
   </a>
@@ -497,13 +497,20 @@
                 
                   
 
-<h1 id="get-started-with-clitw">Get started with clitw</h1>
+<h1 id="get-started-with-clitwy">Get started with clitwy</h1>
 <p>Use <code>tw</code> to turn an OpenAPI operation or an MCP tool into a shell command. This example finds an archived snapshot of a public web page. It uses a bundled OpenAPI schema and needs no account.</p>
-<h2 id="install-from-a-checkout">Install from a checkout</h2>
-<p>From the repository root, install the package in a dedicated tool environment.</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>.
+<h2 id="install-clitwy">Install clitwy</h2>
+<p>Install the <code>clitwy</code> package in a dedicated tool environment. To install from a checkout, run <code>uv tool install .</code> in the repository root.</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>clitwy
 tw<span class="w"> </span>--help
 </code></pre></div>
+<p>If uv reports a command conflict and your old <code>clitw</code> tool came from this project, uninstall it before installing <code>clitwy</code>. Run both offline migrations with your previous <code>CLITW_HOME</code> setting to update existing provider launchers.</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>tool<span class="w"> </span>uninstall<span class="w"> </span>clitw
+uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>clitwy
+tw<span class="w"> </span>openapi<span class="w"> </span>install<span class="w"> </span>--migrate-names
+tw<span class="w"> </span>mcp<span class="w"> </span>install<span class="w"> </span>--migrate-names
+</code></pre></div>
+<p>Update Python imports to <code>clitwy</code>. Continue using <code>tw</code> in shell commands.</p>
 <p>For an isolated first run, set the state directory before installing a provider. Keep the same shell open for the following commands.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLITW_HOME</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
 tw<span class="w"> </span>catalog<span class="w"> </span>openapi
@@ -525,7 +532,7 @@ tw<span class="w"> </span>run<span class="w"> </span>archive-wayback-api<span cl
 <p>The same package installation that provides <code>tw</code> also puts the provider launcher on your path.</p>
 <div class="highlight"><pre><span></span><code>mcx-archive-wayback-api<span class="w"> </span>--list<span class="w"> </span>--json
 </code></pre></div>
-<p><a href="integrations/">Configure OpenAPI and MCP integrations</a> · <a href="automation/">Use clitw from Python or an agent</a> · <a href="operations/">Manage MCP groups</a></p>
+<p><a href="integrations/">Configure OpenAPI and MCP integrations</a> · <a href="automation/">Use clitwy from Python or an agent</a> · <a href="operations/">Manage MCP groups</a></p>
 
 
 

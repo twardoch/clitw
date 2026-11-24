@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this_file: publish.sh
 #
-# Publish clitw: run ./release.sh (commit, tag, push, clean build), then
+# Publish clitwy: run ./release.sh (commit, tag, push, clean build), then
 # ask GitHub Actions (.github/workflows/release.yml) to build the tag, cut a
 # GitHub release and upload to pypi.org through Trusted Publishing. No PyPI
 # token is needed locally. Waits for the run and checks pypi.org.

@@ -2,18 +2,29 @@
 this_file: src_docs/md/index.md
 ---
 
-# Get started with clitw
+# Get started with clitwy
 
 Use `tw` to turn an OpenAPI operation or an MCP tool into a shell command. This example finds an archived snapshot of a public web page. It uses a bundled OpenAPI schema and needs no account.
 
-## Install from a checkout
+## Install clitwy
 
-From the repository root, install the package in a dedicated tool environment.
+Install the `clitwy` package in a dedicated tool environment. To install from a checkout, run `uv tool install .` in the repository root.
 
 ```sh
-uv tool install .
+uv tool install clitwy
 tw --help
 ```
+
+If uv reports a command conflict and your old `clitw` tool came from this project, uninstall it before installing `clitwy`. Run both offline migrations with your previous `CLITW_HOME` setting to update existing provider launchers.
+
+```sh
+uv tool uninstall clitw
+uv tool install clitwy
+tw openapi install --migrate-names
+tw mcp install --migrate-names
+```
+
+Update Python imports to `clitwy`. Continue using `tw` in shell commands.
 
 For an isolated first run, set the state directory before installing a provider. Keep the same shell open for the following commands.
 
@@ -52,4 +63,4 @@ The same package installation that provides `tw` also puts the provider launcher
 mcx-archive-wayback-api --list --json
 ```
 
-[Configure OpenAPI and MCP integrations](integrations.md) · [Use clitw from Python or an agent](automation.md) · [Manage MCP groups](operations.md)
+[Configure OpenAPI and MCP integrations](integrations.md) · [Use clitwy from Python or an agent](automation.md) · [Manage MCP groups](operations.md)

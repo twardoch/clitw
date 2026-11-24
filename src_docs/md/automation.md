@@ -9,7 +9,7 @@ this_file: src_docs/md/automation.md
 `catalog()` returns a dictionary mapping canonical provider names to descriptions. Pass `"openapi"` or `"mcp"` to limit the search. Reading the catalog does not install a launcher or contact a provider.
 
 ```python
-from clitw import catalog
+from clitwy import catalog
 
 services = catalog("openapi")
 print(services["mcx-archive-wayback-api"])
@@ -40,7 +40,7 @@ For an agent answering a cost question, report the amount and unit together. Cit
 For a comparison that must use only the package’s public records, read the bundled metadata directly from Python.
 
 ```python
-from clitw.service_info import service_catalog
+from clitwy.service_info import service_catalog
 
 public = service_catalog(include_user=False, include_installed=False)
 rate = public["mcx-tavily-apik"]
@@ -52,7 +52,7 @@ print(rate["price"], rate["currency"], rate["price_unit"], rate["price_as_of"], 
 After `tw openapi install mcx-archive-wayback-api`, call `run(name, args)` with a list of strings. Set `CLITW_HOME` in the Python process if the provider was installed in a custom state directory.
 
 ```python
-from clitw import run
+from clitwy import run
 
 status = run("archive-wayback-api", ["--list", "--json"])
 if status:
@@ -81,6 +81,6 @@ for command in commands:
 
 Copy the skill directory you need from the repository into your agent's skill search path. Each directory contains its own instructions.
 
-- Use the provider skill for catalog lookup, installation, schema inspection and checking a result. [Provider skill](https://github.com/twardoch/clitw/blob/main/skills/clitw/SKILL.md)
+- Use the provider skill for catalog lookup, installation, schema inspection and checking a result. [Provider skill](https://github.com/twardoch/clitw/blob/main/skills/clitwy/SKILL.md)
 
 For example, ask an agent to find the Internet Archive's closest stored snapshot for a public URL. It can read the operation help, pass the URL as one argument, and return the actual capture timestamp. If the response has no capture, it should report that outcome. For an MCP tool, record whether discovery succeeded and whether the requested operation returned a result. These are distinct observations.

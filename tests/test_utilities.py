@@ -8,13 +8,13 @@ from pathlib import Path
 import pytest
 import yaml
 
-from clitw import paths
-from clitw.utilities import cli
+from clitwy import paths
+from clitwy.utilities import cli
 
 
 @pytest.fixture(autouse=True)
 def isolated_home(tmp_path, monkeypatch):
-    monkeypatch.setenv("CLITW_HOME", str(tmp_path / "clitw"))
+    monkeypatch.setenv("CLITW_HOME", str(tmp_path / "clitwy"))
     monkeypatch.setenv("CLITW_ENV_FILE", str(tmp_path / "dotenv"))
 
 

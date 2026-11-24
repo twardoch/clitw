@@ -29,7 +29,7 @@ def isolated_home(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
 
 def invoke(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, "-m", "clitw", *args],
+        [sys.executable, "-m", "clitwy", *args],
         stdin=subprocess.DEVNULL,
         capture_output=True,
         text=True,
@@ -39,7 +39,7 @@ def invoke(*args: str) -> subprocess.CompletedProcess[str]:
 
 
 def test_catalog_matches_python_api_and_kind_filters(isolated_home: Path) -> None:
-    from clitw import catalog
+    from clitwy import catalog
 
     for kind in ("openapi", "mcp"):
         result = invoke("catalog", kind, "--json")
@@ -56,7 +56,7 @@ def test_catalog_matches_python_api_and_kind_filters(isolated_home: Path) -> Non
 
 
 def test_run_preserves_arguments_and_child_exit_status(isolated_home: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    from clitw import run
+    from clitwy import run
 
     outfile = isolated_home / "args.json"
     wrapper = isolated_home / "bin" / ("mcx-qa-fixture.py" if os.name == "nt" else "mcx-qa-fixture")
@@ -79,7 +79,7 @@ def test_run_preserves_arguments_and_child_exit_status(isolated_home: Path, monk
 def test_missing_or_invalid_tool_has_actionable_exit_status(
     isolated_home: Path,
 ) -> None:
-    from clitw import run
+    from clitwy import run
 
     assert run("no-such-fixture", []) == 127
     assert run("../outside", []) == 2
@@ -112,8 +112,8 @@ def test_wayback_quickstart_installs_and_lists_bundled_schema_offline(isolated_h
 
 
 def test_auth_routes_methods_and_checks_both_without_a_terminal(monkeypatch: pytest.MonkeyPatch) -> None:
-    from clitw import cli, credentials
-    from clitw.mcp import login
+    from clitwy import cli, credentials
+    from clitwy.mcp import login
 
     calls = []
     monkeypatch.setattr(login, "cli_login", lambda args, **kwargs: calls.append(("oauth", args)) or 0)
@@ -132,7 +132,7 @@ def test_auth_routes_methods_and_checks_both_without_a_terminal(monkeypatch: pyt
 
 
 def test_service_names_preserve_acronyms_and_resolve_ambiguous_interfaces():
-    from clitw.names import provider_name, resolve_provider
+    from clitwy.names import provider_name, resolve_provider
 
     key = provider_name("ExampleService API", "api", "k")
     oauth = provider_name("ExampleService", "mcp", "o")

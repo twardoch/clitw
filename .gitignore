@@ -225,7 +225,7 @@ vendor/
 _private/
 
 # Written by hatch-vcs for the working tree and distribution.
-/src/clitw/__version__.py
+/src/clitwy/__version__.py
 
 # Python and macOS (pypitrust)
 .DS_Store

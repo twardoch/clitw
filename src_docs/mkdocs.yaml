@@ -1,5 +1,5 @@
 # this_file: src_docs/mkdocs.yaml
-site_name: clitw
+site_name: clitwy
 site_url: https://twardoch.github.io/clitw/
 site_description: Find a service, install its command, and call it from a shell or Python.
 docs_dir: md

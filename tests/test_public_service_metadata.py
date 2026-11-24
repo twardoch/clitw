@@ -12,12 +12,12 @@ from urllib.parse import urlsplit
 
 import yaml
 
-from clitw.mcp.config import presets
-from clitw.openapi.catalogue import providers
+from clitwy.mcp.config import presets
+from clitwy.openapi.catalogue import providers
 
 
 def _public_rows() -> dict:
-    body = files("clitw").joinpath("services.yaml").read_text(encoding="utf-8")
+    body = files("clitwy").joinpath("services.yaml").read_text(encoding="utf-8")
     # safe_load alone accepts duplicate keys and silently discards the previous row.
     object_node = yaml.compose(body)
     keys = [key.value for key, _ in object_node.value]
@@ -71,7 +71,7 @@ def test_each_public_amount_has_a_date_unit_currency_first_party_source_and_scop
 
 
 def test_research_tag_finds_bundled_services_in_a_clean_profile(tmp_path, monkeypatch, capsys):
-    from clitw import service_cli, service_info
+    from clitwy import service_cli, service_info
 
     monkeypatch.setenv("CLITW_HOME", str(tmp_path / "state"))
     monkeypatch.setattr(service_info, "user_metadata_path", lambda: tmp_path / "envinfo.yaml")

@@ -13,10 +13,10 @@ from urllib.parse import parse_qs, urlsplit
 
 import pytest
 
-from clitw.openapi import catalog, cli_install, cli_try
-from clitw.openapi.catalogue import providers
-from clitw.openapi.state import header_args, registry, valid_url
-from clitw.paths import provider_argv, provider_path, registry_dir
+from clitwy.openapi import catalog, cli_install, cli_try
+from clitwy.openapi.catalogue import providers
+from clitwy.openapi.state import header_args, registry, valid_url
+from clitwy.paths import provider_argv, provider_path, registry_dir
 
 FAKE = "synthetic-test-credential"
 
@@ -82,7 +82,7 @@ def test_public_catalogue_when_offline_then_all_bindings_are_safe():
     data = catalog()
     assert len(data) == 257
     assert sum(bool(tool.base) for tool, _ in providers().values()) == 235
-    from clitw.openapi.upgrade import RETIRED
+    from clitwy.openapi.upgrade import RETIRED
 
     assert len(RETIRED) == 14 and not (set(RETIRED) & data.keys())
     assert {
@@ -172,7 +172,7 @@ def test_invalid_custom_url_and_auth_fail_before_download(provider):
 def test_shared_resolver_when_multiple_cycles_then_matches_native_graph_and_reuses_equal_branches():
     from mcp2cli import resolve_refs
 
-    from clitw.openapi.references import resolve_shared
+    from clitwy.openapi.references import resolve_shared
 
     ref = lambda name: {"$ref": "#/components/schemas/" + name}
     schema = {
@@ -204,8 +204,8 @@ def test_customer_base_when_missing_then_discovery_is_explicitly_skipped(provide
 
 
 def _select_presets(monkeypatch, rows):
-    from clitw.openapi import install as installer
-    from clitw.openapi.catalogue import Probe
+    from clitwy.openapi import install as installer
+    from clitwy.openapi.catalogue import Probe
 
     monkeypatch.setattr(
         installer, "providers", lambda: {tool.name: (tool, Probe("-", "-", "fixture")) for tool in rows}
@@ -225,7 +225,7 @@ def _select_presets(monkeypatch, rows):
     ],
 )
 def test_unusable_preset_when_selected_then_skip_without_any_install_state(tmp_path, monkeypatch, capsys, document):
-    from clitw.openapi.catalogue import Tool
+    from clitwy.openapi.catalogue import Tool
 
     root = tmp_path / "private"
     monkeypatch.setenv("CLITW_HOME", str(root))
@@ -241,8 +241,8 @@ def test_unusable_preset_when_selected_then_skip_without_any_install_state(tmp_p
 
 
 def test_bulk_skips_bad_schema_and_refresh_preserves_last_working_snapshot(provider, monkeypatch, tmp_path, capsys):
-    from clitw.openapi.catalogue import Tool
-    from clitw.paths import home
+    from clitwy.openapi.catalogue import Tool
+    from clitwy.paths import home
 
     base, events, spec = provider
     good = Tool("mcx-good-api", base + "/spec", base, "", "good")
@@ -267,7 +267,7 @@ def test_bulk_skips_bad_schema_and_refresh_preserves_last_working_snapshot(provi
 def test_bulk_preserves_explicit_base_and_custom_name_even_if_the_catalogue_has_a_default(
     provider, monkeypatch, tmp_path
 ):
-    from clitw.openapi.catalogue import Tool
+    from clitwy.openapi.catalogue import Tool
 
     base, events, _ = provider
     needs_base = Tool("mcx-tenant-api", base + "/spec", "", "", "tenant")
@@ -285,9 +285,9 @@ def test_bulk_preserves_explicit_base_and_custom_name_even_if_the_catalogue_has_
 
 
 def test_obsolete_default_needs_both_receipts_and_preserves_custom_and_modified_files(provider, monkeypatch, tmp_path):
-    from clitw.openapi.catalogue import Tool
-    from clitw.openapi.state import wrapper
-    from clitw.paths import home
+    from clitwy.openapi.catalogue import Tool
+    from clitwy.openapi.state import wrapper
+    from clitwy.paths import home
 
     _, _, spec = provider
     path = tmp_path / "retired.json"
@@ -318,9 +318,9 @@ def test_obsolete_default_needs_both_receipts_and_preserves_custom_and_modified_
 
 
 def test_no_durable_state_when_native_rejects_an_apparently_valid_schema(provider, monkeypatch, capsys):
-    from clitw.openapi import schema
-    from clitw.openapi.catalogue import Tool
-    from clitw.paths import home
+    from clitwy.openapi import schema
+    from clitwy.openapi.catalogue import Tool
+    from clitwy.paths import home
 
     base, _, _ = provider
     _select_presets(monkeypatch, [Tool("mcx-fixture-api", base + "/spec", base, "", "example")])
@@ -335,8 +335,8 @@ def test_no_durable_state_when_native_rejects_an_apparently_valid_schema(provide
 
 
 def test_documentation_only_refs_and_missing_release_metadata_allow_working_commands(provider):
-    from clitw.openapi.catalogue import Tool
-    from clitw.openapi.schema import normalized
+    from clitwy.openapi.catalogue import Tool
+    from clitwy.openapi.schema import normalized
 
     base, _, spec = provider
     spec["info"].pop("version")
@@ -350,8 +350,8 @@ def test_documentation_only_refs_and_missing_release_metadata_allow_working_comm
 
 
 def _pre_naming(name, body, auth="", base="", preset=False, executable=None):
-    from clitw.openapi.state import atomic, wrapper
-    from clitw.paths import home
+    from clitwy.openapi.state import atomic, wrapper
+    from clitwy.paths import home
 
     snapshot = home() / "openapi" / name / (hashlib.sha256(body).hexdigest() + ".json")
     atomic(snapshot, body)
@@ -371,7 +371,7 @@ def _pre_naming(name, body, auth="", base="", preset=False, executable=None):
 
 
 def test_offline_rename_keeps_custom_bindings_and_user_files(provider):
-    from clitw.openapi.state import wrapper
+    from clitwy.openapi.state import wrapper
 
     base, events, spec = provider
     body = json.dumps(spec).encode()
@@ -398,12 +398,12 @@ def test_offline_rename_keeps_custom_bindings_and_user_files(provider):
 
 
 def test_catalogue_and_auth_names_match_the_shipped_wrapper_binding():
-    from clitw.names import provider_name
-    from clitw.openapi.catalogue import auth_kind, legacy_aliases
+    from clitwy.names import provider_name
+    from clitwy.openapi.catalogue import auth_kind, legacy_aliases
 
     for tool, _ in providers().values():
         assert tool.name == provider_name(tool.name, "api", auth_kind(tool.auth))
-    assert auth_kind("User-Agent:clitw/1.0") == ""
+    assert auth_kind("User-Agent:clitwy/1.0") == ""
     assert auth_kind("Authorization:Bearer env:GOOGLE_OAUTH_ACCESS_TOKEN") == "o"
     assert auth_kind("Authorization:Bearer env:OPENAI_API_KEY") == "k"
     assert (
@@ -416,7 +416,7 @@ def test_catalogue_and_auth_names_match_the_shipped_wrapper_binding():
 def test_migrate_from_another_python_path_preserves_the_native_schema(provider, tmp_path):
     import os
 
-    from clitw.openapi.upgrade import migrate_names
+    from clitwy.openapi.upgrade import migrate_names
 
     base, events, spec = provider
     executable = str(tmp_path / "prior env" / "python") if os.name == "posix" else str(tmp_path / "python.exe")
@@ -430,7 +430,7 @@ def test_migrate_from_another_python_path_preserves_the_native_schema(provider, 
 @pytest.mark.parametrize("name", ["mcx-lmnt", "mcx-lmnt-apik"])
 @pytest.mark.parametrize("modified", [None, "snapshot", "registration", "launcher", "custom"])
 def test_lmnt_migration_retires_only_frozen_stock(name, modified, tmp_path, monkeypatch):
-    from clitw.openapi import upgrade
+    from clitwy.openapi import upgrade
 
     monkeypatch.setenv("CLITW_HOME", str(tmp_path))
     payload = b'{"info": {"title": "historical test schema"}}'
