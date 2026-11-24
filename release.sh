@@ -38,7 +38,7 @@ else
   args=(--pull=False --push=False --bump="$BUMP")
   # gitnextver refuses --commit=False on a tree with any change, untracked included.
   if [[ -z "$(git status --porcelain --untracked-files=all)" ]]; then args+=(--commit=False); fi
-  uvx gitnextver "${args[@]}"
+  uvx --from gitnextver==1.0.5 gitnextver --initial=v0.1.0 "${args[@]}"
   TAG="$(git describe --tags --exact-match --match "$match" HEAD 2>/dev/null || true)"
 fi
 if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then

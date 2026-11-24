@@ -4,7 +4,7 @@ this_file: CHANGELOG.md
 
 # Changelog
 
-## 0.1.0
+## 1.0.1
 
 - Added offline `tw info` and `tw search` for humans and coding agents. Service records include descriptions, tags, documentation and available provider pricing. Dated quotes identify the billing unit and source.
 - Added per-user service metadata in the platform data directory. Existing envinfo inventories can supply notes, tags and personal costs. JSON output identifies the source of each field.
