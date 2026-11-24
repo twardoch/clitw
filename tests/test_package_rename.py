@@ -86,3 +86,29 @@ def test_run_preserves_unregistered_commands_and_reports_old_import_without_trac
     assert run(name) == 126
     assert "Cannot start" in capsys.readouterr().err
     assert path.read_bytes() == body
+
+
+def test_retired_entry_stays_held_with_new_private_module(tmp_path, monkeypatch):
+    monkeypatch.setenv("CLITW_HOME", str(tmp_path))
+    name = "mcx-held-mcpo"
+    row = mcp.held_registration(
+        name, {"name": "held", "legacy": "mcx-held", "auth_mode": "oauth"}, "catalog", "disabled"
+    )
+    row["source"] = shlex.join([str(tmp_path / "old-python"), "-m", "clitw.mcp.runtime", "--private", name])
+    state = registry_dir() / "baked.json"
+    malformed = {}
+    for i, source in enumerate(({}, {"source": None}, {"source": 1}, {"source": "'unclosed"})):
+        invalid = f"mcx-bad-{i}-mcpo"
+        held = mcp.held_registration(
+            invalid, {"name": f"bad-{i}", "legacy": "mcx-bad", "auth_mode": "oauth"}, "catalog", "disabled"
+        )
+        held.pop("source")
+        malformed[invalid] = held | source
+    atomic(state, json.dumps({**malformed, name: row}).encode())
+    mcp.migrate_names()
+    after = json.loads(state.read_bytes())
+    assert {key: after[key] for key in malformed} == malformed
+    assert all(not provider_path(key).exists() for key in malformed)
+    upgraded = after[name]
+    assert upgraded["clitw_mcp"] == row["clitw_mcp"] and not provider_path(name).exists()
+    assert shlex.split(upgraded["source"])[1:] == ["-m", "clitwy.mcp.runtime", "--private", name]

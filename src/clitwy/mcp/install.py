@@ -201,6 +201,16 @@ def migrate_names(names: list[str] | None = None, *, source: str | None = None, 
                 if not owned(old, entry, provider_path(old)):
                     raise ValueError(f"{old}: existing executable has a different owner")
                 if meta.get("hold"):
+                    command = entry.get("source")
+                    if entry.get("source_type") == "mcp_stdio" and isinstance(command, str):
+                        try:
+                            args = shlex.split(command)
+                        except ValueError:
+                            continue
+                        if args[1:] == ["-m", "clitw.mcp.runtime", "--private", old] and Path(args[0]).is_absolute():
+                            updated[old] = dict(
+                                entry, source=shlex.join([sys.executable, "-m", "clitwy.mcp.runtime", "--private", old])
+                            )
                     continue
                 if provider_path(old).is_file():
                     if replacement := _renamed_runtime(old, entry):
@@ -249,7 +259,7 @@ def migrate_names(names: list[str] | None = None, *, source: str | None = None, 
             elif prior := meta.get("previous_name"):
                 data["clitw_mcp"]["previous_name"] = prior
             updated[new], scripts[new] = data, script
-        if scripts:
+        if scripts or updated != original:
             bin_dir().mkdir(parents=True, exist_ok=True)
             commit(registry_path, original, updated, scripts)
     if migrated:
