@@ -190,6 +190,8 @@ def failure(message: str) -> Status:
         return Status("authentication required" if code != "403" else "access forbidden (HTTP 403)", needs_login=True)
     if code:
         return Status("rate limited (HTTP 429)" if code == "429" else f"provider returned HTTP {code}")
+    if re.search(r"server-sent event exceeded the \d+ byte limit", err):
+        return Status("tool schema exceeded the SSE event size limit")
     if any(
         key in err
         for key in ("connecterror", "connection refused", "connection failed", "name resolution", "could not connect")
@@ -293,6 +295,8 @@ def check(binding: Binding, timeout: float) -> Status:
     ):
         return Status(f"{result.text}; {binding.client_hint or GOOGLE_CLIENT_HINT}")
     if not result.needs_login and not result.works:
+        if saved_grant(binding):
+            return Status(f"OAuth grant saved; verification pending ({result.text})")
         return result
     advertised = advertises_oauth(binding.url, timeout)
     if advertised is None:
@@ -419,16 +423,22 @@ def workflow(
             if choice == "quit":
                 return quit_code or int(bool(failures))
             if choice == "skip":
+                print(f"{n}: skipped", flush=True)
                 continue
-            if not login(binding):
+            completed = login(binding)
+            grant = saved_grant(binding)
+            if not completed and not grant:
                 print(f"{n}: authorization failed or timed out", flush=True)
                 failures += 1
                 continue
             verified = verify_access(binding, opts.timeout, consented=True)
-            if verified.works and (binding.url in PROTECTED_READS or saved_grant(binding) or not status.works):
+            if verified.works and (binding.url in PROTECTED_READS or grant or not status.works):
                 print(f"{n}: verified {verified.text}", flush=True)
             elif verified.works:
                 print(f"{n}: {verified.text}; no saved OAuth grant confirmed", flush=True)
+                failures += 1
+            elif grant:
+                print(f"{n}: OAuth grant saved; verification pending ({verified.text})", flush=True)
                 failures += 1
             else:
                 print(f"{n}: authorization did not verify ({verified.text})", flush=True)

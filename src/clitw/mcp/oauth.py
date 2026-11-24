@@ -13,6 +13,20 @@ from filelock import FileLock
 from .config import digest, load
 
 
+def use_single_token_auth(provider) -> None:
+    """Let the SDK select client auth, removing form credentials when it emits HTTP Basic."""
+    context = provider.context
+    native = context.prepare_token_auth
+
+    def prepare(data, headers=None):
+        form, outgoing = native(data, headers)
+        if outgoing.get("Authorization", "").lower().startswith("basic "):
+            form = {key: value for key, value in form.items() if key not in ("client_id", "client_secret")}
+        return form, outgoing
+
+    context.prepare_token_auth = prepare
+
+
 @contextlib.contextmanager
 def preserve_requested_scope(url: str):
     """Keep the selected permission scope when the SDK processes a broad provider challenge."""
@@ -22,6 +36,8 @@ def preserve_requested_scope(url: str):
 
     def build(server_url: str, **opts):
         auth = original(server_url, **opts)
+        if server_url == url:
+            use_single_token_auth(auth)
         scope = opts.get("scope")
         if server_url == url and scope and hasattr(auth, "_perform_authorization"):
             authorize = auth._perform_authorization
@@ -58,6 +74,7 @@ async def refresh(url: str) -> int | None:
         return None
     # Only the issuer on this endpoint's existing client registration can receive the refresh token.
     provider = OAuthClientProvider(server_url=url, client_metadata=client, storage=storage)
+    use_single_token_auth(provider)
     await provider._initialize()
     if not provider.context.can_refresh_token():
         return None

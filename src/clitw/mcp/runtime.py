@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import sys
+import warnings
 from urllib.parse import parse_qs, unquote, urlencode
 
 from clitw.credentials import available_keys, custom_mcp_value, oauth_client_variables
@@ -25,6 +26,7 @@ from .config import (
     server_slug,
 )
 from .oauth import cached_bearer, preserve_requested_scope
+from .sse import higgsfield_schema_stream
 
 
 def expand(value: str, conf: dict, seen: tuple = ()) -> str:
@@ -227,6 +229,7 @@ def invoke(state: str, source: str, name: str, pin: str, args: list[str], *, cha
         contextlib.redirect_stderr(Redact(sys.stderr, redactions)),
         contextlib.redirect_stdout(Redact(sys.stdout, redactions)),
         preserve_requested_scope(url) if oauth else contextlib.nullcontext(),
+        higgsfield_schema_stream(url),
     ):
         # Prevent an SDK logger retaining the original stderr from emitting an unredacted URL.
         if redactions:
@@ -266,7 +269,17 @@ def main(argv: list[str]) -> int:
         print("Use tw mcp install to create an MCP wrapper.", file=sys.stderr)
         return 2
     try:
-        invoke(*argv[:4], argv[4:])
+        with warnings.catch_warnings():
+            # Pydantic has already discarded this incompatible optional plugin.
+            warnings.filterwarnings(
+                "ignore",
+                message=(
+                    r"^ImportError while loading the `logfire-plugin` Pydantic plugin, this plugin will not be installed\."
+                    r"""\s+ImportError\("cannot import name '_ExtendedAttributes' from 'opentelemetry\.util\.types'"""
+                ),
+                category=UserWarning,
+            )
+            invoke(*argv[:4], argv[4:])
         return 0
     except (OSError, ValueError, TypeError, KeyError) as exc:
         print(f"MCP wrapper: {exc}", file=sys.stderr)

@@ -6,6 +6,9 @@ this_file: CHANGELOG.md
 
 ## Unreleased
 
+- Corrected OAuth client authentication during both code exchange and refresh. A provider that uses HTTP Basic receives the client credentials once.
+- Raised the event limit for Higgsfield discovery to 8 MiB. Guided login now reports a saved grant separately when discovery still needs verification.
+
 - Named provider commands now identify the interface and authentication method. Offline migrations update owned launchers and their PATH exports.
 - Added standalone builders for MCP and OpenAPI provider executables, guided MCP browser login, and an authentication command for the installed inventory. Run `tw auth --list` to inspect OAuth and API key status.
 
