@@ -12,6 +12,78 @@ Choose the integration by interface. An OpenAPI command gets its arguments from 
 | See installation options | `tw openapi install --help` | `tw mcp install --help` |
 | See probe options | `tw openapi try --help` | `tw mcp try --help` |
 
+## Service metadata
+
+Start with a word, then inspect a matching launcher. `tw info` without a name lists brief summaries. With names it gives detailed records, including documentation, tags and available prices.
+
+```sh
+tw search archive
+tw info mcx-archive-wayback-api mcx-openai-apik
+tw info mcx-openai-apik --json
+```
+
+Search words are case-insensitive substrings. More than one word narrows the results to records matching every word. Use `--tag` for an exact tag or `--substring` for a phrase. Both can be combined with a sort.
+
+```sh
+tw search --substring wayback --sort key
+tw search --tag research --sort price --json
+```
+
+`--sort price` orders raw numbers from lowest to highest and places unknown amounts last. It does no currency or unit conversion. Compare prices for the same workload and billing unit. In JSON, `sources.price` identifies the source of the amount. A service can have a pricing link even when its numeric rate is unknown.
+
+For example, run `tw info mcx-tavily-apik`. The public rate checked on 2026-11-24 was **USD 0.008 per API credit** on Tavily’s pay-as-you-go plan. A basic search uses one credit and an advanced search uses two. [Tavily credits and pricing](https://docs.tavily.com/documentation/api-credits)
+
+### Personal notes, tags and costs
+
+Print the path clitw will read on this machine. You can also point either command at another YAML file with `--file`.
+
+```sh
+tw info --data-path
+tw info mcx-openai-apik --file ./envinfo.yaml
+```
+
+The default file lives in the platform's user data directory. Create its parent directories if needed. The table shows typical locations.
+
+| Platform | Default file |
+| --- | --- |
+| macOS | `~/Library/Application Support/com.twardoch.clitw/data/envinfo.yaml` |
+| Linux | `$XDG_DATA_HOME/com.twardoch.clitw/data/envinfo.yaml`, normally `~/.local/share/com.twardoch.clitw/data/envinfo.yaml` |
+| Windows | `%LOCALAPPDATA%\com.twardoch.clitw\data\envinfo.yaml` |
+
+Copy this example into `envinfo.yaml` to record an illustrative **personal monthly cost**. Replace the amount with your own figure. The top-level name selects the OpenAI REST binding.
+
+```yaml
+mcx-openai-apik:
+  note: Monthly spend recorded from my invoice.
+  tags: [research, monthly-review]
+  price: 12
+  currency: USD
+  price_unit: month
+```
+
+```sh
+tw search --file ./envinfo.yaml --tag monthly-review --sort price
+tw info mcx-openai-apik --file ./envinfo.yaml --json
+```
+
+A supplied tag list replaces that record's tags. Setting any of `price`, `currency`, `price_unit` or `price_model` starts a new price record and clears the inherited pricing details. Supply the amount, currency and unit together when you know them. Zero is a valid amount. To retain the public price, add just a note or tags.
+
+### Reuse an older envinfo inventory
+
+Try the existing file directly with `--file`. Older inventories can key a record by a credential **variable name**. An explicit `cli` identifies a launcher. An unambiguous match to a reviewed variable name also connects the metadata to its service. A canonical launcher record takes precedence for fields that it supplies.
+
+```yaml
+OPENAI_API_KEY:
+  cli: mcx-openai-apik
+  note: Use this integration for the text research project.
+```
+
+```sh
+tw info mcx-openai-apik --file ./envinfo.yaml --json
+```
+
+Keep API keys in your credential store. The metadata reader ignores the legacy `key` field. If one variable is shared by several services, key your note or cost by the exact launcher name to select the intended integration.
+
 ## Build a standalone command
 
 ```sh

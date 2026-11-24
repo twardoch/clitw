@@ -303,6 +303,7 @@ dependencies = [
     { name = "httpx" },
     { name = "mcp" },
     { name = "mcp2cli" },
+    { name = "platformdirs" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
 ]
@@ -324,6 +325,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28,<1" },
     { name = "mcp", specifier = ">=2.3,<3" },
     { name = "mcp2cli", specifier = "==3.9.0" },
+    { name = "platformdirs", specifier = ">=4,<6" },
     { name = "python-dotenv", specifier = ">=1,<2" },
     { name = "pyyaml", specifier = ">=6,<7" },
 ]

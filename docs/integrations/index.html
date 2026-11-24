@@ -329,6 +329,45 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#service-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-notes-tags-and-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personal notes, tags and costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reuse-an-older-envinfo-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reuse an older envinfo inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#build-a-standalone-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -483,6 +522,45 @@
     <ul class="md-nav__list" data-md-component="toc">
       
         <li class="md-nav__item">
+  <a href="#service-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personal-notes-tags-and-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personal notes, tags and costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reuse-an-older-envinfo-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reuse an older envinfo inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#build-a-standalone-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -593,6 +671,67 @@
 </tr>
 </tbody>
 </table>
+<h2 id="service-metadata">Service metadata</h2>
+<p>Start with a word, then inspect a matching launcher. <code>tw info</code> without a name lists brief summaries. With names it gives detailed records, including documentation, tags and available prices.</p>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>search<span class="w"> </span>archive
+tw<span class="w"> </span>info<span class="w"> </span>mcx-archive-wayback-api<span class="w"> </span>mcx-openai-apik
+tw<span class="w"> </span>info<span class="w"> </span>mcx-openai-apik<span class="w"> </span>--json
+</code></pre></div>
+<p>Search words are case-insensitive substrings. More than one word narrows the results to records matching every word. Use <code>--tag</code> for an exact tag or <code>--substring</code> for a phrase. Both can be combined with a sort.</p>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>search<span class="w"> </span>--substring<span class="w"> </span>wayback<span class="w"> </span>--sort<span class="w"> </span>key
+tw<span class="w"> </span>search<span class="w"> </span>--tag<span class="w"> </span>research<span class="w"> </span>--sort<span class="w"> </span>price<span class="w"> </span>--json
+</code></pre></div>
+<p><code>--sort price</code> orders raw numbers from lowest to highest and places unknown amounts last. It does no currency or unit conversion. Compare prices for the same workload and billing unit. In JSON, <code>sources.price</code> identifies the source of the amount. A service can have a pricing link even when its numeric rate is unknown.</p>
+<p>For example, run <code>tw info mcx-tavily-apik</code>. The public rate checked on 2026-11-24 was <strong>USD 0.008 per API credit</strong> on Tavily’s pay-as-you-go plan. A basic search uses one credit and an advanced search uses two. <a href="https://docs.tavily.com/documentation/api-credits">Tavily credits and pricing</a></p>
+<h3 id="personal-notes-tags-and-costs">Personal notes, tags and costs</h3>
+<p>Print the path clitw will read on this machine. You can also point either command at another YAML file with <code>--file</code>.</p>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>info<span class="w"> </span>--data-path
+tw<span class="w"> </span>info<span class="w"> </span>mcx-openai-apik<span class="w"> </span>--file<span class="w"> </span>./envinfo.yaml
+</code></pre></div>
+<p>The default file lives in the platform's user data directory. Create its parent directories if needed. The table shows typical locations.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/com.twardoch.clitw/data/envinfo.yaml</code></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td><code>$XDG_DATA_HOME/com.twardoch.clitw/data/envinfo.yaml</code>, normally <code>~/.local/share/com.twardoch.clitw/data/envinfo.yaml</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%LOCALAPPDATA%\com.twardoch.clitw\data\envinfo.yaml</code></td>
+</tr>
+</tbody>
+</table>
+<p>Copy this example into <code>envinfo.yaml</code> to record an illustrative <strong>personal monthly cost</strong>. Replace the amount with your own figure. The top-level name selects the OpenAI REST binding.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">mcx-openai-apik</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monthly spend recorded from my invoice.</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">research</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">monthly-review</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<span class="w">  </span><span class="nt">currency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USD</span>
+<span class="w">  </span><span class="nt">price_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">month</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>search<span class="w"> </span>--file<span class="w"> </span>./envinfo.yaml<span class="w"> </span>--tag<span class="w"> </span>monthly-review<span class="w"> </span>--sort<span class="w"> </span>price
+tw<span class="w"> </span>info<span class="w"> </span>mcx-openai-apik<span class="w"> </span>--file<span class="w"> </span>./envinfo.yaml<span class="w"> </span>--json
+</code></pre></div>
+<p>A supplied tag list replaces that record's tags. Setting any of <code>price</code>, <code>currency</code>, <code>price_unit</code> or <code>price_model</code> starts a new price record and clears the inherited pricing details. Supply the amount, currency and unit together when you know them. Zero is a valid amount. To retain the public price, add just a note or tags.</p>
+<h3 id="reuse-an-older-envinfo-inventory">Reuse an older envinfo inventory</h3>
+<p>Try the existing file directly with <code>--file</code>. Older inventories can key a record by a credential <strong>variable name</strong>. An explicit <code>cli</code> identifies a launcher. An unambiguous match to a reviewed variable name also connects the metadata to its service. A canonical launcher record takes precedence for fields that it supplies.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">OPENAI_API_KEY</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cli</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcx-openai-apik</span>
+<span class="w">  </span><span class="nt">note</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use this integration for the text research project.</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>info<span class="w"> </span>mcx-openai-apik<span class="w"> </span>--file<span class="w"> </span>./envinfo.yaml<span class="w"> </span>--json
+</code></pre></div>
+<p>Keep API keys in your credential store. The metadata reader ignores the legacy <code>key</code> field. If one variable is shared by several services, key your note or cost by the exact launcher name to select the intended integration.</p>
 <h2 id="build-a-standalone-command">Build a standalone command</h2>
 <div class="highlight"><pre><span></span><code>mcxadmin-build-mcp<span class="w"> </span>mcx-deepwiki-github-search-mcp
 mcx-deepwiki-github-search-mcp<span class="w"> </span>--list<span class="w"> </span>--compact

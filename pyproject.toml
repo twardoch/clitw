@@ -14,7 +14,7 @@ license-files = ["LICENSE"]
 dependencies = [
   "filelock>=3.16", "httpx>=0.28,<1", "mcp>=2.3,<3", "mcp2cli==3.9.0",
   "distlib>=0.4,<1; sys_platform == 'win32'",
-  "python-dotenv>=1,<2", "PyYAML>=6,<7",
+  "python-dotenv>=1,<2", "PyYAML>=6,<7", "platformdirs>=4,<6",
 ]
 
 [project.urls]

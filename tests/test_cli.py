@@ -91,7 +91,7 @@ def test_missing_or_invalid_tool_has_actionable_exit_status(
 def test_front_door_documents_each_integration_command(isolated_home: Path) -> None:
     help_result = invoke("--help")
     assert help_result.returncode == 0, help_result.stderr
-    for name in ("catalog", "openapi", "mcp", "run", "auth"):
+    for name in ("catalog", "openapi", "mcp", "run", "auth", "info", "search"):
         assert name in help_result.stdout
     for kind in ("openapi", "mcp"):
         for action in ("install", "try"):

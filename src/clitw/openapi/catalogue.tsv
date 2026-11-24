@@ -131,7 +131,6 @@ mcx-langsearch-apik	https://docs.langsearch.com/api/openapi.json	https://api.lan
 mcx-linkup-apik	https://api.linkup.so/v1/openapi.json	https://api.linkup.so	Authorization:Bearer env:LINKUP_API_KEY	Linkup — web search & research	GET	/v1/credits/balance	[]			Authorization:Bearer env:LINKUP_API_KEY	mcx-linkup
 mcx-listclean-apik	https://api.listclean.xyz/v1/spec.json	https://api.listclean.xyz/v1/	X-Auth-Token:env:LISTCLEANXYZ_API_KEY	ListClean — email verification	GET	/credits	[]			X-Auth-Token:env:LISTCLEANXYZ_API_KEY	mcx-listclean
 mcx-llm7-apik	https://api.llm7.io/openapi.json	https://api.llm7.io	Authorization:Bearer env:LLM7_API_KEY	LLM7 — free LLM gateway	GET	/healthz	[]				mcx-llm7
-mcx-lmnt-apik	https://skmtc.dev/lmnt/apis/yapster/revisions/f153248e1350?raw	https://api.lmnt.com	x-api-key:env:LMNT_API_KEY	LMNT — low-latency speech synthesis	GET	/health_check	[]				mcx-lmnt
 mcx-logfare-apik	https://logfare.ai/openapi.json	https://logfare.ai	Authorization:Bearer env:LOGFARE_API_KEY	Logfare AI gateway	GET	/v1/models	[]			=	mcx-logfare-api
 mcx-mailchimp-api	https://api.mailchimp.com/schema/3.0/Swagger.json?expand			Mailchimp Marketing API	GET	/ping	[]			Authorization:Bearer env:MAILCHIMP_API_KEY	mcx-mailchimp mcx-mailchimp-marketing mcx-mailchimp-oas
 mcx-mailchimp-transactional-api	https://cdn.jsdelivr.net/gh/mailchimp/mailchimp-client-lib-codegen@main/spec/transactional.openapi.json			Mandrill — transactional email	-	-	"Mandrill requires a distinct transactional credential in the request body"				mcx-mailchimp-transactional

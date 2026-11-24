@@ -311,6 +311,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#find-a-provider-by-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find a provider by task
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#look-up-an-archived-snapshot" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -448,6 +459,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#find-a-provider-by-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find a provider by task
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#look-up-an-archived-snapshot" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -489,6 +511,11 @@ tw<span class="w"> </span>openapi<span class="w"> </span>install<span class="w">
 tw<span class="w"> </span>run<span class="w"> </span>archive-wayback-api<span class="w"> </span>--list<span class="w"> </span>--json
 </code></pre></div>
 <p>The package installs a shell command for each ready-to-use catalog name, including <code>mcx-archive-wayback-api</code>. It shares the installed binding with <code>tw run archive-wayback-api</code>. Both forms can install a bundled provider on first use. The explicit install above keeps setup output separate from the JSON command listing.</p>
+<h2 id="find-a-provider-by-task">Find a provider by task</h2>
+<div class="highlight"><pre><span></span><code>tw<span class="w"> </span>search<span class="w"> </span>archive
+tw<span class="w"> </span>info<span class="w"> </span>mcx-archive-wayback-api
+</code></pre></div>
+<p>Search the service descriptions when you know the task but not the command name. Inspect a match for its tags, service links and available pricing. <a href="integrations/#service-metadata">Service metadata and personal overlays</a></p>
 <h2 id="look-up-an-archived-snapshot">Look up an archived snapshot</h2>
 <p>Show the operation's arguments, then ask the Internet Archive about <code>https://example.com/</code>. The second command contacts the service.</p>
 <div class="highlight"><pre><span></span><code>tw<span class="w"> </span>run<span class="w"> </span>archive-wayback-api<span class="w"> </span>get-wayback-v1-available<span class="w"> </span>--help

@@ -17,6 +17,10 @@ from clitw.paths import home, install_lock, provider_path, registry_dir
 from .catalogue import auth_kind, legacy_aliases, providers
 from .state import NAME, atomic, registry, wrapper
 
+# LMNT announced its shutdown at https://www.lmnt.com/. Both stock names used this exact snapshot.
+LMNT_NAMES = {"mcx-lmnt", "mcx-lmnt-apik"}
+LMNT_SNAPSHOT = "0bf07de5e45cda86364d086ae7366342bc165fe6f03895d5095fe1c450ba47dc"
+
 # Historical signatures only. These origins are never used for discovery or requests.
 RETIRED = dict.fromkeys(
     (
@@ -39,12 +43,18 @@ RETIRED.update(
         ),
         "mcx-gemelo-api": ("https://api.gemelo.ai/", "X-API-Key:env:GEMELO_API_KEY,X-Client-Key:env:GEMELO_CLIENT_KEY"),
         "mcx-goog-io": ("https://api.goog.io", ""),
+        **dict.fromkeys(LMNT_NAMES, ("https://api.lmnt.com", "x-api-key:env:LMNT_API_KEY")),
         "mcx-searchly": ("https://searchly.asuarez.dev/api/v1", ""),
     }
 )
 
 
 def former_default(name: str, entry: dict) -> bool:
+    if name in LMNT_NAMES and (
+        Path(entry.get("source", "")).name != LMNT_SNAPSHOT + ".json"
+        or entry.get("description") != "LMNT — low-latency speech synthesis"
+    ):
+        return False
     previous = RETIRED.get(name)
     recipe = legacy_aliases().get(name, name)
     if previous is None and recipe in providers():
@@ -99,15 +109,15 @@ def intact(name: str, entry: dict) -> bool:
     )
 
 
-def reconcile() -> list[str]:
+def reconcile(only: set[str] | None = None) -> list[str]:
     """Remove only genuine obsolete default launchers. Leave snapshots and user bindings in place."""
-    if not any(former_default(n, e) for n, e in registry().items()):
+    if not any(former_default(n, e) for n, e in registry().items() if only is None or n in only):
         return []
     removed = []
     with install_lock():
         entries = registry()
         for name, entry in list(entries.items()):
-            if not former_default(name, entry) or not intact(name, entry):
+            if (only is not None and name not in only) or not former_default(name, entry) or not intact(name, entry):
                 continue
             path = provider_path(name)
             old_script = path.read_bytes()
@@ -183,6 +193,9 @@ def migrate_names(names=None, *, require_exports: bool = True) -> dict[str, str]
     """Rename intact provider installations offline and update receipts for their external exports."""
     selected = {"mcx-" + n.removeprefix("mcx-").removeprefix("tw-") for n in names or ()}
     migrated = {}
+    if not selected or selected & LMNT_NAMES:
+        for name in reconcile(LMNT_NAMES):
+            print(f"{name}: removed retired LMNT wrapper", flush=True)
     if not registry():
         return migrated
     with install_lock():
@@ -190,7 +203,7 @@ def migrate_names(names=None, *, require_exports: bool = True) -> dict[str, str]
         baked = registry_dir() / "baked.json"
         other = json.loads(baked.read_bytes()) if baked.exists() else {}
         for old, entry in list(entries.items()):
-            if not NAME.fullmatch(old) or former_default(old, entry):
+            if not NAME.fullmatch(old) or old in LMNT_NAMES or former_default(old, entry):
                 continue
             new = _target(old, entry)
             if (

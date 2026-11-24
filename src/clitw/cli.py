@@ -17,6 +17,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="tw", description="Install and run MCP and OpenAPI command-line tools.")
     parser.add_argument("--version", action="version", version=__version__)
     commands = parser.add_subparsers(dest="command")
+    commands.add_parser("info", help="describe providers, authentication and pricing")
+    commands.add_parser("search", help="find providers by purpose, text or tag")
     listing = commands.add_parser("catalog", help="list bundled integrations offline")
     listing.add_argument("kind", nargs="?", choices=KINDS)
     listing.add_argument("--json", action="store_true", help="write a name-to-description JSON object")
@@ -28,6 +30,14 @@ def main(argv: list[str] | None = None) -> int:
     runner.add_argument("name", metavar="NAME")
     for name in UTILITIES:
         commands.add_parser(name, help=f"run the {name} utility")
+    if args[:1] == ["info"]:
+        from .service_cli import info
+
+        return info(args[1:])
+    if args[:1] == ["search"]:
+        from .service_cli import search
+
+        return search(args[1:])
     if args[:1] == ["auth"]:
         return auth(args[1:])
     if args[:2] == ["mcp", "login"]:

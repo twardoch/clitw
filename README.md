@@ -28,6 +28,19 @@ Set `CLITW_HOME` to select a separate installation directory. The default is `$X
 
 The auxiliary commands `tw groups` and `tw doctor` have their own help. Try commands use reviewed reads or discovery.
 
+## Find a service
+
+`tw info` shows service descriptions, links, tags and available pricing. `tw search` narrows the list before you install anything. Add `--json` for records keyed by canonical launcher name.
+
+```sh
+tw info mcx-openai-apik
+tw search archive
+tw info mcx-openai-apik --json
+tw info --data-path
+```
+
+The last command prints the location of your optional personal YAML file. Use it to add notes, tags or costs from your own account. For a price comparison, check the currency, billing unit and source of each amount. [Service metadata and personal overlays](src_docs/md/integrations.md#service-metadata)
+
 ## Standalone commands and authentication
 
 `mcxadmin-build-mcp` and `mcxadmin-build-openapi` put individual provider commands on your PATH. Provider names end in `-api` or `-mcp`. The final `k` selects key authentication and `o` selects OAuth. A bare suffix identifies a binding without service credentials. Pass one or more catalog names to build a selection, or omit names for the full inventory. On macOS and Linux the default destination is `~/.local/bin` unless you set `XDG_BIN_HOME`. Use `--bin-dir DIR` to choose another directory. Existing commands from another installation are preserved.

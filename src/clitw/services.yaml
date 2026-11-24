@@ -1,0 +1,1111 @@
+# this_file: src/clitw/services.yaml
+# Public service metadata. Dated amounts are provider list prices for the unit and use case shown.
+mcx-adyen-api:
+  tags: [finance, payments]
+  pricing_url: https://www.adyen.com/pricing
+  price_model: Transaction fees
+  price_note: Processing fees depend on the payment method and market.
+mcx-agno-api:
+  tags: [agents, development]
+mcx-aihorde-apik:
+  info: Submit generation jobs to AI Horde's distributed pool of volunteer workers.
+  tags: [images, generation]
+mcx-aimlapi-apik:
+  tags: [language-models, inference]
+  pricing_url: https://help.aimlapi.com/article/54-pricing-calculator
+  price_model: Model usage
+  price_note: Each model has its own pricing parameters. Use the provider’s pricing calculator for the selected model.
+mcx-aimlapi-mcpk:
+  tags: [language-models, inference]
+  pricing_url: https://help.aimlapi.com/article/54-pricing-calculator
+  price_model: Model usage
+  price_note: Each model has its own pricing parameters. Use the provider’s pricing calculator for the selected model.
+mcx-amplitude-analytics-mcpo:
+  tags: [data, analytics]
+  pricing_url: https://amplitude.com/pricing
+mcx-anthropic-apik:
+  tags: [language-models, inference]
+  pricing_url: https://platform.claude.com/docs/en/about-claude/pricing
+  price: 3
+  price_unit: million input tokens
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Claude Sonnet 4.6 base input rate. Output tokens, cache writes and cache reads have separate rates.
+mcx-anyapi-apik:
+  tags: [language-models, inference]
+mcx-api-ninjas-apik:
+  tags: [developer-tools]
+  pricing_url: https://api-ninjas.com/pricing
+mcx-apify-apik:
+  tags: [web, scraping]
+  pricing_url: https://apify.com/pricing
+  price_model: Usage-based compute
+  price_note: Platform charges reflect the compute an Actor consumes. Individual Actors can also have developer-set pricing.
+mcx-apisguru-api:
+  info: Browse public API specifications by provider, API name and version.
+  tags: [developer-tools]
+  url: https://apis.guru/
+mcx-apivideo-apik:
+  info: Upload videos, manage live streams and retrieve playback information.
+  tags: [video, media]
+  pricing_url: https://api.video/pricing/
+  price_model: Usage-based video
+  price_note: Stored video minutes and delivered video minutes are billed separately.
+mcx-archive-search-api:
+  info: Search the Internet Archive catalogue by collection, metadata field or item identifier.
+  tags: [web, archives]
+  url: https://archive.org/advancedsearch.php
+mcx-archive-wayback-api:
+  info: Check whether the Wayback Machine has a snapshot for a URL and retrieve the archived address.
+  tags: [web, archives]
+  url: https://web.archive.org/
+mcx-artificial-analysis-apik:
+  info: Compare language models using published benchmarks for quality, response speed and price.
+  tags: [developer-tools]
+mcx-asana-apik:
+  info: Organize work into tasks, projects and portfolios in an Asana workspace.
+  tags: [workspaces, collaboration]
+  pricing_url: https://asana.com/pricing
+  price_model: Per-seat subscription
+  price_note: Published paid tiers quote a rate per user, with separate annual and monthly billing.
+mcx-assemblyai-apik:
+  info: Transcribe recorded or streaming audio and request speech analysis alongside the transcript.
+  tags: [audio, speech]
+  pricing_url: https://www.assemblyai.com/pricing
+  price: 0.15
+  price_unit: hour of recorded audio
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Universal-2 transcription on pay-as-you-go pricing. Optional analysis features can add charges.
+mcx-astra-apik:
+  tags: [cloud, infrastructure]
+mcx-atlascloud-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.atlascloud.ai/pricing/models
+mcx-authentiq-api:
+  tags: [identity, security]
+mcx-autoenhance-apik:
+  tags: [images, editing]
+  pricing_url: https://www.autoenhance.ai/pricing
+mcx-autom-apik:
+  tags: [search, web]
+mcx-azure-cognitive-api:
+  tags: [cloud, vision]
+  pricing_url: https://azure.microsoft.com/en-us/pricing/details/computer-vision/
+  price_model: Per transaction
+  price_note: Vision features are priced by transaction volume, operation and region.
+mcx-azure-computervision-api:
+  tags: [cloud, vision]
+  pricing_url: https://azure.microsoft.com/en-us/pricing/details/computer-vision/
+  price_model: Per transaction
+  price_note: Vision features are priced by transaction volume, operation and region.
+mcx-azure-textanalytics-api:
+  tags: [nlp, text]
+  pricing_url: https://azure.microsoft.com/en-us/pricing/details/language/
+mcx-baseten-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.baseten.co/pricing/
+  price_model: Usage-based compute
+  price_note: On-demand inference and reserved production capacity are priced separately.
+mcx-bazaarlink-apik:
+  tags: [language-models, inference]
+mcx-bfl-apik:
+  tags: [images, generation]
+  pricing_url: https://bfl.ai/pricing
+  price_model: Pay per generation
+  price_note: Black Forest Labs lists image and video rates by model and output.
+mcx-bitbucket-apik:
+  info: Inspect Bitbucket Cloud repositories, pull requests and pipeline runs.
+  tags: [developer-tools]
+  pricing_url: https://www.atlassian.com/software/bitbucket/pricing
+mcx-brave-search-apik:
+  info: Search Brave's independent web index and retrieve ranked results for a query.
+  tags: [search, web]
+  pricing_url: https://api-dashboard.search.brave.com/documentation/pricing
+  price: 5
+  price_unit: 1,000 search requests
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Brave Search plan. The Answers product has separate query and token charges.
+mcx-brevo-apik:
+  tags: [email, marketing]
+  pricing_url: https://www.brevo.com/pricing/
+mcx-brevo-email-mcpk:
+  tags: [email, marketing]
+  pricing_url: https://www.brevo.com/pricing/
+mcx-bria-apik:
+  tags: [images, generation]
+mcx-brightdata-mcpk:
+  tags: [web, scraping]
+  pricing_url: https://brightdata.com/pricing
+mcx-browse-ai-apik:
+  tags: [web, scraping]
+  pricing_url: https://www.browse.ai/pricing
+  price_model: Credit plans
+  price_note: Plans provide credits for robot runs.
+mcx-browser-use-apik:
+  tags: [browser, automation]
+  pricing_url: https://browser-use.com/pricing
+mcx-bunq-apik:
+  tags: [finance, payments]
+mcx-capturekit-apik:
+  tags: [web, screenshots]
+  pricing_url: https://www.capturekit.dev/pricing
+mcx-cartesia-apik:
+  tags: [audio, speech]
+  pricing_url: https://www.cartesia.ai/pricing
+  price_model: Usage credits
+  price_note: Speech synthesis consumes credits by character. Transcription consumes credits by audio duration.
+mcx-cellcog-apik:
+  tags: [agents, development]
+mcx-centml-apik:
+  tags: [language-models, inference]
+mcx-ceramic-apik:
+  tags: [search, web]
+mcx-cerebras-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.cerebras.ai/pricing
+mcx-cheapestinference-apik:
+  tags: [language-models, inference]
+mcx-chutes-apik:
+  tags: [language-models, inference]
+  pricing_url: https://chutes.ai/pricing
+mcx-circleci-apik:
+  tags: [developer-tools]
+  pricing_url: https://circleci.com/pricing/
+  price_model: Compute credits
+  price_note: Each executing resource class consumes credits at its own per-minute rate.
+mcx-cloudflare-api-mcpo:
+  tags: [cloud, infrastructure]
+  url: https://developers.cloudflare.com/api/
+  pricing_url: https://www.cloudflare.com/plans/
+  price_model: Product plans
+  price_note: Charges depend on the underlying Cloudflare services used by the account.
+mcx-cloudflare-autorag-mcpo:
+  tags: [search, vectors]
+  url: https://developers.cloudflare.com/ai-search/
+mcx-cloudflare-browser-mcpo:
+  tags: [browser, automation]
+  pricing_url: https://developers.cloudflare.com/browser-run/pricing/
+  price_model: Browser time
+  price_note: Browser Run measures browser hours across methods. Plan allowances and concurrency also affect billing.
+mcx-cloudflare-dns-mcpo:
+  tags: [cloud, infrastructure]
+  url: https://developers.cloudflare.com/dns/
+mcx-cloudflare-docs-mcp:
+  info: Search Cloudflare's public developer documentation.
+  tags: [web, documentation]
+  url: https://developers.cloudflare.com/
+mcx-cloudflare-rest-apik:
+  tags: [cloud, infrastructure]
+  url: https://developers.cloudflare.com/api/
+  pricing_url: https://www.cloudflare.com/plans/
+  price_model: Product plans
+  price_note: Charges depend on the underlying Cloudflare services used by the account.
+mcx-cloudinary-apik:
+  tags: [media, assets]
+  pricing_url: https://cloudinary.com/pricing
+  price_model: Credit plans
+  price_note: Cloudinary publishes monthly platform credit allowances for its plans. The pricing page describes the underlying
+    media service.
+mcx-cloudinary-asset-mgmt-mcpo:
+  info: Find, organize and transform assets in the connected Cloudinary environment.
+  tags: [media, assets]
+  pricing_url: https://cloudinary.com/pricing
+  price_model: Credit plans
+  price_note: Cloudinary publishes monthly platform credit allowances for its plans. The pricing page describes the underlying
+    media service.
+mcx-cloudinary-env-config-mcpo:
+  info: Manage settings for a Cloudinary product environment.
+  tags: [media, assets]
+  pricing_url: https://cloudinary.com/pricing
+  price_model: Credit plans
+  price_note: Cloudinary publishes monthly platform credit allowances for its plans. The pricing page describes the underlying
+    media service.
+mcx-cloudinary-smd-mcpo:
+  info: Configure structured metadata fields used to describe Cloudinary assets.
+  tags: [media, assets]
+  pricing_url: https://cloudinary.com/pricing
+  price_model: Credit plans
+  price_note: Cloudinary publishes monthly platform credit allowances for its plans. The pricing page describes the underlying
+    media service.
+mcx-cloudrift-apik:
+  tags: [language-models, inference]
+mcx-cohere-apik:
+  tags: [language-models, inference]
+  pricing_url: https://cohere.com/pricing
+mcx-confluence-api:
+  tags: [workspaces, collaboration]
+  pricing_url: https://www.atlassian.com/software/confluence/pricing
+mcx-context7-mcpk:
+  tags: [developer-tools]
+  url: https://context7.com/
+  pricing_url: https://context7.com/pricing
+mcx-crates-io-apik:
+  info: Look up Rust crates and inspect the metadata for individual releases.
+  tags: [developer-tools]
+  url: https://crates.io/
+mcx-critique-labs-apik:
+  tags: [search, web]
+mcx-dashscope-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+mcx-dataforseo-apik:
+  tags: [search, content]
+  pricing_url: https://dataforseo.com/pricing
+  price_model: Pay per use
+  price_note: The requested endpoint and its parameters determine the rate.
+mcx-datalab-apik:
+  tags: [documents, text]
+  pricing_url: https://www.datalab.to/pricing
+  price_model: Document processing
+  price_note: Conversion and extraction have different rates. Documents are metered by page, while spreadsheet processing is metered
+    by cells.
+mcx-deapi-apik:
+  tags: [language-models, inference]
+  pricing_url: https://deapi.ai/pricing
+mcx-deep-image-apik:
+  tags: [images, editing]
+mcx-deepai-apik:
+  tags: [language-models, inference]
+  pricing_url: https://deepai.org/pricing
+mcx-deepgram-apik:
+  tags: [audio, speech]
+  url: https://developers.deepgram.com/
+  pricing_url: https://deepgram.com/pricing
+  price_model: Metered audio
+  price_note: Transcription is metered by processed audio duration, including each channel of multichannel audio.
+mcx-deepinfra-apik:
+  tags: [language-models, inference]
+  pricing_url: https://deepinfra.com/pricing
+mcx-deepl-apik:
+  tags: [nlp, text]
+  pricing_url: https://developers.deepl.com/docs/resources/usage-limits
+  price_model: Character-based usage
+  price_note: Translation and document limits depend on the API plan.
+mcx-deepseek-apik:
+  tags: [language-models, inference]
+  pricing_url: https://api-docs.deepseek.com/quick_start/pricing/
+  price: 0.3
+  price_unit: million input tokens
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Peak rate for uncached input to deepseek-flash. Off-peak traffic, output and cache hits have different rates.
+mcx-deepset-apik:
+  tags: [agents, development]
+mcx-deepwiki-github-search-mcp:
+  tags: [developer-tools]
+  url: https://deepwiki.com/
+  pricing_url: https://docs.devin.ai/work-with-devin/deepwiki-mcp
+  price_model: Free public access
+  price_note: Public repository wikis are available without a subscription or an API key.
+  price: 0
+  price_unit: access to the hosted MCP server
+  currency: USD
+  price_as_of: '2026-11-24'
+mcx-digitalocean-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://www.digitalocean.com/pricing
+  price_model: Infrastructure usage
+  price_note: Pricing varies by resource, including compute instances, databases and storage.
+mcx-discord-apik:
+  tags: [messaging, communications]
+  url: https://discord.com/developers/docs/intro
+mcx-document360-apik:
+  tags: [web, documentation]
+  pricing_url: https://document360.com/pricing/
+mcx-docusign-api:
+  tags: [documents, signatures]
+mcx-doppio-apik:
+  tags: [web, screenshots]
+  pricing_url: https://doppio.sh/pricing
+mcx-dropbox-apio:
+  tags: [workspaces, collaboration]
+  pricing_url: https://www.dropbox.com/plans
+mcx-ebay-account-apio:
+  info: Read and manage a seller's fulfillment, payment and return policies.
+  tags: [commerce]
+mcx-edenai-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.edenai.co/pricing
+mcx-electronhub-apik:
+  tags: [language-models, inference]
+mcx-elevenlabs-apik:
+  tags: [audio, speech]
+  pricing_url: https://elevenlabs.io/pricing/api
+  price_model: Metered audio
+  price_note: Text-to-speech pricing is expressed per thousand characters. Other audio products have their own units.
+mcx-emaillistverify-apik:
+  tags: [email, verification]
+  pricing_url: https://emaillistverify.com/pricing
+mcx-evetech-api:
+  info: Access EVE Online game data through the EVE Swagger Interface.
+  tags: [data, games]
+  url: https://developers.eveonline.com/
+mcx-exa-apik:
+  tags: [search, web]
+  pricing_url: https://exa.ai/pricing
+  price: 7
+  price_unit: 1,000 search requests
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Auto or fast search with up to ten results per request. Additional results and page summaries are billed separately.
+mcx-exa-search-mcpk:
+  tags: [search, web]
+  pricing_url: https://exa.ai/pricing
+  price: 7
+  price_unit: 1,000 search requests
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Auto or fast search with up to ten results per request. Additional results and page summaries are billed separately.
+mcx-exchangerate-api:
+  tags: [finance, exchange-rates]
+  pricing_url: https://www.exchangerate-api.com/
+  price_model: Free and paid plans
+  price_note: Request allowances and the frequency of currency-rate updates vary by plan.
+mcx-experiential-apik:
+  tags: [language-models, inference]
+mcx-fal-apik:
+  tags: [images, generation]
+  pricing_url: https://fal.ai/pricing
+  price_model: Model output
+  price_note: Video models are billed per second of output or per completed video, depending on the model.
+mcx-featherless-apik:
+  tags: [language-models, inference]
+  pricing_url: https://featherless.ai/pricing
+  price_model: Subscription
+  price_note: Featherless offers recurring inference subscriptions.
+mcx-firecrawl-mcpk:
+  tags: [web, scraping]
+  pricing_url: https://www.firecrawl.dev/pricing
+  price_model: Credit plans
+  price_note: Plans allocate credits for web scraping and extraction.
+mcx-fireworks-apik:
+  tags: [language-models, inference]
+  pricing_url: https://fireworks.ai/pricing
+mcx-fish-apik:
+  tags: [audio, speech]
+mcx-fly-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://docs.fly.io/about/pricing
+  price_model: Resource usage
+  price_note: Machines, memory, volumes and network traffic have separate rates.
+mcx-friendli-apik:
+  tags: [language-models, inference]
+  pricing_url: https://friendli.ai/pricing
+mcx-g-adsense-apio:
+  info: Read AdSense account information and generate reports on publisher earnings and performance.
+  tags: [data, analytics]
+  url: https://developers.google.com/adsense/management
+mcx-g-analyticsadmin-apio:
+  info: Manage the properties, data streams and settings that control Google Analytics 4.
+  tags: [data, analytics]
+  url: https://developers.google.com/analytics/devguides/config/admin/v1
+mcx-g-analyticsdata-apio:
+  info: Run Google Analytics 4 reports with dimensions, metrics and filters.
+  tags: [data, analytics]
+  url: https://developers.google.com/analytics/devguides/reporting/data/v1
+mcx-g-analyticshub-api:
+  info: Manage data exchanges, publisher listings and subscriptions in BigQuery sharing.
+  tags: [data, analytics]
+  url: https://cloud.google.com/bigquery/docs/analytics-hub-introduction
+mcx-g-books-apik:
+  info: Search Google Books volumes by title, author or other bibliographic criteria.
+  tags: [data, books]
+  url: https://developers.google.com/books
+mcx-g-cloudsearch-apio:
+  info: Index organizational content and query it through Google Cloud Search.
+  tags: [workspaces, collaboration]
+  url: https://developers.google.com/workspace/cloud-search
+mcx-g-docs-apio:
+  info: Read document structure and apply edits to Google Docs documents.
+  tags: [workspaces, collaboration]
+  url: https://developers.google.com/workspace/docs/api
+  pricing_url: https://developers.google.com/workspace/docs/api/limits
+  price_model: Quota-based
+  price_note: Standard API use within Google’s quotas carries no additional charge. The published limits describe upcoming billing
+    changes.
+mcx-g-drive-apio:
+  info: Search Drive files, inspect metadata and manage file permissions.
+  tags: [workspaces, collaboration]
+  url: https://developers.google.com/workspace/drive/api
+  pricing_url: https://developers.google.com/workspace/drive/api/guides/limits
+  price_model: Quota-based
+  price_note: Daily quota-unit and data-egress thresholds apply to the Drive API. Usage below the documented thresholds carries
+    no additional charge.
+mcx-g-gmail-apio:
+  info: Read and manage messages, drafts, threads and labels in a Gmail mailbox.
+  tags: [email, productivity]
+  url: https://developers.google.com/workspace/gmail/api
+  pricing_url: https://developers.google.com/workspace/gmail/api/reference/quota
+  price_model: Quota-based
+  price_note: Usage below the published daily quota-unit threshold carries no additional charge. Individual Gmail methods consume
+    different numbers of quota units.
+mcx-g-pagespeedonline-apik:
+  info: Run PageSpeed Insights on a page and inspect performance diagnostics.
+  tags: [web, performance]
+  url: https://developers.google.com/speed/docs/insights/v5/get-started
+mcx-g-searchconsole-apio:
+  info: Read search performance, check URL indexing and manage a site's sitemaps.
+  tags: [data, analytics]
+  url: https://developers.google.com/webmaster-tools
+mcx-g-tagmanager-apio:
+  info: Manage the accounts, containers, workspaces and tags used by Google Tag Manager.
+  tags: [data, analytics]
+  url: https://developers.google.com/tag-platform/tag-manager/api/v2
+mcx-g-vision-apik:
+  info: Apply image annotations such as OCR, label detection and landmark recognition.
+  tags: [cloud, vision]
+  pricing_url: https://cloud.google.com/vision/pricing
+  price: 1.5
+  price_unit: 1,000 text-detection units
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Standard on-demand OCR tier after the first 1,000 monthly units and up to five million. Each feature applied to an
+    image counts separately.
+mcx-g-webfonts-apik:
+  info: Look up Google Fonts families, styles, scripts and downloadable font files.
+  tags: [fonts, typography]
+  url: https://developers.google.com/fonts/docs/developer_api
+mcx-g-youtube-apik:
+  info: Read and manage YouTube videos, channels and playlists through the Data API.
+  tags: [video, analytics]
+  url: https://developers.google.com/youtube/data
+mcx-g-youtubereporting-apio:
+  info: Schedule bulk YouTube reporting jobs and retrieve their generated files.
+  tags: [video, analytics]
+  url: https://developers.google.com/youtube/reporting
+mcx-gemini-apik:
+  tags: [language-models, inference]
+  pricing_url: https://aistudio.google.com/docs/pricing
+  price_model: Model usage
+  price_note: Rates depend on the model, modality and input or output volume.
+mcx-github-apik:
+  tags: [developer-tools]
+  pricing_url: https://github.com/pricing
+mcx-glama-apik:
+  tags: [agents, development]
+mcx-gmail-mcpo:
+  info: Use Google's Workspace MCP endpoint to work with Gmail messages and labels.
+  tags: [email, productivity]
+  url: https://developers.google.com/workspace/gmail/api
+mcx-godaddy-apik:
+  tags: [cloud, infrastructure]
+mcx-google-custom-search-apik:
+  info: Query a configured Programmable Search Engine for web or image results.
+  tags: [search, web]
+  pricing_url: https://developers.google.com/custom-search/v1/overview
+  price: 5
+  price_unit: 1,000 additional queries
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Existing customers receive 100 free queries per day. The API is closed to new customers and is scheduled to discontinue
+    on January 1, 2027.
+mcx-google-drive-mcpo:
+  info: Find and work with Drive files through Google's Workspace MCP endpoint.
+  tags: [workspaces, collaboration]
+  url: https://developers.google.com/workspace/drive/api
+mcx-gotoai-apik:
+  tags: [language-models, inference]
+mcx-groq-apik:
+  tags: [language-models, inference]
+  pricing_url: https://console.groq.com/docs/models
+  price: 0.075
+  price_unit: million input tokens
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Groq-hosted OpenAI GPT OSS 20B. The published output rate for this model is 0.30 USD per million tokens.
+mcx-hackernews-api:
+  info: Read public Hacker News stories, comments and user records through its Firebase API.
+  tags: [data, community]
+  url: https://github.com/HackerNews/API
+mcx-haimaker-apik:
+  tags: [language-models, inference]
+mcx-hasdata-apik:
+  tags: [web, scraping]
+  pricing_url: https://hasdata.com/prices
+mcx-helicone-apik:
+  tags: [agents, development]
+  pricing_url: https://www.helicone.ai/pricing
+mcx-heygen-mcpo:
+  tags: [video, generation]
+  url: https://www.heygen.com/
+  pricing_url: https://help.heygen.com/en/articles/10060327-heygen-api-pricing-credits-explained
+  price_model: API credits
+  price_note: HeyGen publishes pay-as-you-go API credit rates for avatar video and translation. Its web subscriptions are priced
+    separately.
+mcx-hf-hub-apik:
+  info: Find model and dataset repositories, inspect revisions and work with Hugging Face Spaces.
+  tags: [developer-tools]
+  url: https://huggingface.co/docs/hub/
+  pricing_url: https://huggingface.co/pricing
+mcx-hibp-apik:
+  tags: [identity, security]
+  pricing_url: https://haveibeenpwned.com/Subscription
+mcx-higgsfield-mcpo:
+  tags: [video, generation]
+mcx-huggingface-mcpk:
+  info: Search the Hub for models, datasets and Spaces through the Hugging Face MCP server.
+  tags: [developer-tools]
+  url: https://huggingface.co/
+  pricing_url: https://huggingface.co/pricing
+mcx-hunter-apik:
+  tags: [email, verification]
+  pricing_url: https://hunter.io/pricing
+mcx-hyperbolic-apik:
+  tags: [language-models, inference]
+mcx-imagepipeline-apik:
+  tags: [images, generation]
+  pricing_url: https://www.imagepipeline.io/pricing
+mcx-imgix-apik:
+  tags: [images, editing]
+  pricing_url: https://www.imgix.com/pricing
+mcx-interfaze-apik:
+  tags: [language-models, inference]
+mcx-iura-io-mcpk:
+  tags: [data, legal]
+  url: https://iura.io/
+mcx-jina-apik:
+  info: Generate vector embeddings and rerank text for relevance.
+  tags: [search, vectors]
+  pricing_url: https://jina.ai/api-dashboard/pricing/
+mcx-jina-reader-apik:
+  info: Fetch a web page and extract readable content for indexing or analysis.
+  tags: [search, content]
+  pricing_url: https://jina.ai/api-dashboard/pricing/
+mcx-jira-api:
+  tags: [workspaces, collaboration]
+  pricing_url: https://www.atlassian.com/software/jira/pricing
+mcx-keenable-apik:
+  tags: [search, web]
+  pricing_url: https://keenable.ai/pricing
+mcx-keenable-mcpk:
+  tags: [search, web]
+  pricing_url: https://keenable.ai/pricing
+mcx-keiro-apik:
+  tags: [language-models, inference]
+mcx-kickbox-apik:
+  tags: [email, verification]
+mcx-kimi-apik:
+  tags: [language-models, inference]
+mcx-kits-apik:
+  tags: [audio, speech]
+mcx-klaviyo-apik:
+  tags: [email, marketing]
+  pricing_url: https://www.klaviyo.com/pricing
+mcx-krakenai-api:
+  tags: [images, editing]
+  pricing_url: https://kraken.io/pricing
+mcx-lalal-apik:
+  tags: [audio, music]
+  pricing_url: https://www.lalal.ai/pricing/
+mcx-lamini-apik:
+  tags: [language-models, inference]
+mcx-langsearch-apik:
+  tags: [search, web]
+  url: https://langsearch.com/
+  pricing_url: https://langsearch.com/pricing
+mcx-langsearch-mcpk:
+  tags: [search, web]
+  url: https://langsearch.com/
+  pricing_url: https://langsearch.com/pricing
+mcx-linkup-apik:
+  tags: [search, web]
+  pricing_url: https://www.linkup.so/pricing
+mcx-listclean-apik:
+  tags: [email, verification]
+  pricing_url: https://listclean.xyz/pricing/
+mcx-llm7-apik:
+  tags: [language-models, inference]
+mcx-logfare-apik:
+  tags: [ai, infrastructure]
+mcx-magnific-mcpo:
+  tags: [images, editing]
+mcx-mailchimp-api:
+  info: Manage Mailchimp Marketing audiences, contacts and campaigns.
+  tags: [email, marketing]
+  pricing_url: https://mailchimp.com/pricing/marketing/
+  price_model: Contact-based plans
+  price_note: Marketing plan rates vary with the number of contacts.
+mcx-mailchimp-transactional-api:
+  info: Send transactional messages through Mailchimp Transactional, also known as Mandrill.
+  tags: [email, transactional]
+  pricing_url: https://mailchimp.com/pricing/transactional-email/
+  price_model: Email blocks
+  price_note: Transactional email is purchased in blocks, with a volume-dependent price per block.
+mcx-mailersend-apik:
+  tags: [email, transactional]
+  pricing_url: https://www.mailersend.com/pricing
+mcx-mancer-apik:
+  tags: [language-models, inference]
+mcx-mem0-apik:
+  tags: [agents, development]
+  pricing_url: https://mem0.ai/pricing
+mcx-messagebird-apik:
+  tags: [messaging, communications]
+mcx-minimax-apik:
+  tags: [language-models, inference]
+  pricing_url: https://platform.minimax.io/docs/pricing/overview
+mcx-mistral-apik:
+  tags: [language-models, inference]
+  pricing_url: https://mistral.ai/pricing/
+mcx-mixedbread-apik:
+  tags: [search, vectors]
+  pricing_url: https://www.mixedbread.com/pricing
+mcx-modelscope-apik:
+  tags: [language-models, inference]
+mcx-modelslab-apik:
+  tags: [language-models, inference]
+  pricing_url: https://modelslab.com/pricing
+mcx-monday-apik:
+  tags: [workspaces, collaboration]
+  pricing_url: https://monday.com/pricing
+mcx-monster-apik:
+  tags: [language-models, inference]
+mcx-moonshot-apik:
+  tags: [language-models, inference]
+  pricing_url: https://platform.kimi.com/docs/pricing/chat
+mcx-morph-apik:
+  tags: [agents, development]
+  pricing_url: https://www.morphllm.com/pricing
+mcx-msft-computervision-api:
+  tags: [cloud, vision]
+  pricing_url: https://azure.microsoft.com/en-us/pricing/details/computer-vision/
+  price_model: Per transaction
+  price_note: Vision features are priced by transaction volume, operation and region.
+mcx-multion-api:
+  tags: [browser, automation]
+mcx-mystic-apik:
+  tags: [language-models, inference]
+mcx-nebius-apik:
+  tags: [language-models, inference]
+mcx-nlpcloud-apik:
+  tags: [language-models, inference]
+  pricing_url: https://nlpcloud.com/pricing.html
+mcx-nomic-apik:
+  tags: [search, vectors]
+  pricing_url: https://www.nomic.ai/pricing
+mcx-novita-apik:
+  tags: [language-models, inference]
+  pricing_url: https://novita.ai/pricing
+mcx-npm-registry-apik:
+  info: Look up package metadata and releases in the public npm registry.
+  tags: [developer-tools]
+  url: https://www.npmjs.com/
+mcx-nvidia-nim-apik:
+  tags: [language-models, inference]
+mcx-olostep-apik:
+  tags: [web, scraping]
+  pricing_url: https://www.olostep.com/pricing
+mcx-omdb-api:
+  tags: [data, film]
+  url: https://www.omdbapi.com/
+mcx-openai-apik:
+  info: Use OpenAI models for text, image and audio tasks and inspect available models.
+  tags: [language-models, inference]
+  url: https://developers.openai.com/api/docs/
+  pricing_url: https://developers.openai.com/api/docs/pricing
+  price_model: Model usage
+  price_note: Text models have separate input, cached-input and output token rates. The model and processing tier determine the
+    rates.
+mcx-opencode-zen-apik:
+  tags: [language-models, inference]
+  pricing_url: https://opencode.ai/docs/console/models/
+mcx-openrouter-apik:
+  tags: [language-models, inference]
+  pricing_url: https://openrouter.ai/pricing
+mcx-opper-apik:
+  tags: [language-models, inference]
+  pricing_url: https://opper.ai/pricing
+mcx-orcarouter-apik:
+  tags: [language-models, inference]
+mcx-parallel-apik:
+  tags: [search, web]
+  pricing_url: https://parallel.ai/pricing
+mcx-parallel-search-mcpk:
+  info: Search the web and retrieve relevant pages with Parallel's Search MCP server.
+  tags: [search, web]
+  pricing_url: https://parallel.ai/pricing
+mcx-parallel-task-mcpk:
+  info: Submit structured web research tasks to Parallel's Task MCP server.
+  tags: [search, web]
+  pricing_url: https://parallel.ai/pricing
+mcx-parasail-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.parasail.io/pricing
+mcx-perplexity-apik:
+  tags: [search, web]
+  pricing_url: https://docs.perplexity.ai/docs/getting-started/pricing
+mcx-pexels-apik:
+  tags: [images, search]
+  url: https://www.pexels.com/api/
+mcx-pika-apik:
+  tags: [video, generation]
+  url: https://pika.art/
+  pricing_url: https://dev.pika.art/pricing
+  price_model: Model usage
+  price_note: The Pika Developer API lists rates by model and output type, including video seconds, images and tokens.
+mcx-pika-mcpo:
+  tags: [video, generation]
+  url: https://pika.art/
+mcx-pinecone-control-apik:
+  info: Create, describe and manage Pinecone vector indexes through the control plane.
+  tags: [search, vectors]
+  pricing_url: https://www.pinecone.io/pricing/
+  price_model: Database usage
+  price_note: Storage, reads and writes are priced separately. Plan minimums and allowances depend on the deployment.
+mcx-pipedream-apik:
+  tags: [agents, development]
+  pricing_url: https://pipedream.com/pricing
+mcx-pipeworx-apik:
+  tags: [agents, development]
+mcx-plaid-apik:
+  tags: [finance, payments]
+  pricing_url: https://plaid.com/pricing/
+mcx-poe-apik:
+  tags: [language-models, inference]
+mcx-pollinations-apik:
+  tags: [images, generation]
+mcx-pollo-apik:
+  tags: [images, generation]
+  pricing_url: https://api.pollo.ai/pricing
+mcx-pollo-mcpo:
+  tags: [images, generation]
+  pricing_url: https://api.pollo.ai/pricing
+mcx-portkey-apik:
+  tags: [ai, infrastructure]
+mcx-publicwww-apik:
+  tags: [search, web]
+  pricing_url: https://publicwww.com/prices.html
+mcx-qdrant-api:
+  info: Manage vector collections and search indexed points by similarity or payload filters.
+  tags: [search, vectors]
+  pricing_url: https://qdrant.tech/pricing/
+mcx-quiver-apik:
+  tags: [images, generation]
+mcx-qwen-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+mcx-ragie-apik:
+  tags: [search, vectors]
+  pricing_url: https://www.ragie.ai/pricing
+  price_model: Document pages
+  price_note: Document ingestion uses page counts. For some non-paginated formats Ragie converts character counts into pages.
+mcx-redpill-apik:
+  tags: [language-models, inference]
+mcx-reka-apik:
+  tags: [language-models, inference]
+mcx-remove-bg-apik:
+  tags: [images, generation]
+  pricing_url: https://www.remove.bg/pricing
+mcx-replicate-apik:
+  tags: [language-models, inference]
+  pricing_url: https://replicate.com/pricing
+  price_model: Model or compute usage
+  price_note: Many models bill by hardware runtime. Other models have output-specific rates such as a price per image or second
+    of video.
+mcx-requesty-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.requesty.ai/pricing
+mcx-resend-apik:
+  info: Send transactional email and manage domains, templates and delivery events.
+  tags: [email, transactional]
+  pricing_url: https://resend.com/pricing.md
+  price: 20
+  price_unit: month
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Transactional Pro tier with 50,000 emails per month. Overage and optional add-ons cost extra.
+mcx-ringcentral-apio:
+  tags: [messaging, communications]
+mcx-robocorp-api:
+  tags: [automation]
+mcx-routeway-apik:
+  tags: [language-models, inference]
+mcx-runcomfy-apik:
+  tags: [video, generation]
+  pricing_url: https://www.runcomfy.com/pricing
+mcx-runpod-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://www.runpod.io/pricing
+mcx-runway-mcpo:
+  tags: [video, generation]
+  url: https://runwayml.com/
+mcx-runwayml-apik:
+  info: Submit media generation tasks to the Runway Developer API and inspect task results.
+  tags: [video, generation]
+  url: https://docs.dev.runwayml.com/
+  pricing_url: https://docs.dev.runwayml.com/guides/pricing/
+  price: 0.01
+  price_unit: developer credit
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Runway Developer API credits. Generation consumes credits according to the model and output; sales tax may apply.
+mcx-runwayml-dev-mcpo:
+  info: Work with the Runway Developer API through its dedicated developer MCP server.
+  tags: [video, generation]
+  url: https://docs.dev.runwayml.com/
+  pricing_url: https://docs.dev.runwayml.com/guides/pricing/
+  price: 0.01
+  price_unit: developer credit
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Runway Developer API credits. Generation consumes credits according to the model and output; sales tax may apply.
+mcx-sail-apik:
+  tags: [language-models, inference]
+mcx-saltedge-apik:
+  tags: [finance, payments]
+mcx-sambanova-apik:
+  tags: [language-models, inference]
+mcx-scaledown-apik:
+  tags: [nlp, text]
+mcx-scrape-do-apik:
+  tags: [web, scraping]
+  pricing_url: https://scrape.do/pricing/
+mcx-screenshotone-apik:
+  tags: [web, screenshots]
+  pricing_url: https://screenshotone.com/pricing/
+mcx-sea-lion-apik:
+  tags: [language-models, inference]
+mcx-search1api-apik:
+  tags: [search, web]
+mcx-searchcode-mcp:
+  tags: [developer-tools]
+  url: https://searchcode.com/
+mcx-segmind-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.segmind.com/pricing
+mcx-septorlabs-apik:
+  tags: [language-models, inference]
+mcx-serper-apik:
+  tags: [search, web]
+  pricing_url: https://serper.dev/
+  price_model: Prepaid query credits
+  price_note: Query credits are sold in top-ups with volume pricing.
+mcx-setapp-ai-apik:
+  tags: [language-models, inference]
+mcx-shipengine-apik:
+  tags: [commerce]
+mcx-shopify-api:
+  tags: [commerce]
+mcx-shotstack-apik:
+  tags: [video, generation]
+  pricing_url: https://shotstack.io/pricing/
+  price_model: Rendering credits
+  price_note: Video duration determines credit usage. Render minutes per credit vary by plan.
+mcx-siliconflow-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.siliconflow.com/pricing
+mcx-slack-apio:
+  tags: [messaging, communications]
+mcx-snyk-apik:
+  tags: [identity, security]
+  pricing_url: https://snyk.io/plans/
+mcx-spoonacular-apik:
+  tags: [data, food]
+  pricing_url: https://spoonacular.com/food-api/pricing
+  price_model: Daily points allowance
+  price_note: Each endpoint has a point cost. Some requests consume additional points for the number of results.
+mcx-square-apik:
+  tags: [finance, payments]
+mcx-stability-apik:
+  tags: [images, generation]
+  pricing_url: https://docs.stability.ai/pricing
+  price: 0.01
+  price_unit: API credit
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Stability AI API credit. Each model and operation consumes a specified number of credits.
+mcx-stakpak-apik:
+  tags: [agents, development]
+  pricing_url: https://stakpak.dev/pricing
+mcx-statusbrew-apik:
+  tags: [social, analytics]
+  pricing_url: https://statusbrew.com/pricing
+mcx-steel-apik:
+  tags: [browser, automation]
+  pricing_url: https://steel.dev/pricing
+mcx-stripe-mcpo:
+  info: Work with the connected Stripe account through its MCP tools.
+  tags: [finance, payments]
+  url: https://docs.stripe.com/
+  pricing_url: https://stripe.com/pricing
+  price_model: Transaction fees
+  price_note: Fees for the underlying Stripe products depend on the transaction type, payment method and market.
+mcx-suno-mcpo:
+  tags: [audio, music]
+  url: https://suno.com/
+mcx-supabase-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://supabase.com/pricing
+mcx-sync-apik:
+  tags: [video, generation]
+  pricing_url: https://sync.so/pricing
+mcx-synthetic-apik:
+  tags: [language-models, inference]
+  pricing_url: https://synthetic.new/pricing
+mcx-targon-apik:
+  tags: [language-models, inference]
+mcx-tavily-apik:
+  info: Search and extract web pages for research workflows using the Tavily API.
+  tags: [search, web]
+  pricing_url: https://docs.tavily.com/documentation/api-credits
+  price: 0.008
+  price_unit: API credit
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go rate. The free plan includes 1,000 credits each month. The number of credits a request uses depends
+    on the operation.
+mcx-tavily-search-mcpk:
+  info: Run web searches and extract page content through Tavily's MCP server.
+  tags: [search, web]
+  pricing_url: https://docs.tavily.com/documentation/api-credits
+  price: 0.008
+  price_unit: API credit
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go rate. The free plan includes 1,000 credits each month. The number of credits a request uses depends
+    on the operation.
+mcx-telegram-bot-api:
+  tags: [messaging, communications]
+  url: https://core.telegram.org/bots/api
+mcx-tencent-tokenhub-apik:
+  tags: [language-models, inference]
+mcx-tineye-apik:
+  tags: [images, search]
+  pricing_url: https://services.tineye.com/TinEyeAPI
+mcx-tmdb-apik:
+  tags: [data, film]
+  url: https://developer.themoviedb.org/
+mcx-together-apik:
+  tags: [language-models, inference]
+  pricing_url: https://www.together.ai/pricing
+  price_model: Model usage
+  price_note: Language models quote input and output prices per million tokens. Other model types use different units.
+mcx-twelvelabs-apik:
+  tags: [video, media]
+  pricing_url: https://www.twelvelabs.io/pricing
+mcx-twilio-apik:
+  tags: [messaging, communications]
+  pricing_url: https://www.twilio.com/en-us/pricing
+mcx-twilio-messaging-apik:
+  tags: [messaging, communications]
+  pricing_url: https://www.twilio.com/en-us/pricing/messaging
+  price_model: Message usage
+  price_note: SMS rates vary by destination, message segments and carrier fees. Phone number charges can also apply.
+mcx-ubicloud-apik:
+  tags: [cloud, infrastructure]
+mcx-unorouter-apik:
+  tags: [language-models, inference]
+mcx-unsplash-apik:
+  tags: [images, search]
+  url: https://unsplash.com/developers
+mcx-unstructured-apik:
+  tags: [documents, text]
+  pricing_url: https://unstructured.io/pricing
+  price: 0.015
+  price_unit: document page
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go document processing after the initial allowance of 10,000 free pages.
+mcx-upstage-apik:
+  tags: [language-models, inference]
+mcx-upstash-qstash-apik:
+  info: Publish HTTP messages for queued or scheduled delivery with Upstash QStash.
+  tags: [cloud, infrastructure]
+  pricing_url: https://upstash.com/pricing/qstash
+  price: 1
+  price_unit: 100,000 messages
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go messaging rate. Fixed-volume plans have separate allowances.
+mcx-upstash-redis-api:
+  info: Run Redis commands over HTTP against an Upstash database.
+  tags: [cloud, infrastructure]
+  pricing_url: https://upstash.com/pricing/redis
+  price: 0.2
+  price_unit: 100,000 commands
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go command rate. Other usage and plan charges can apply.
+mcx-upstash-vector-api:
+  info: Store vector records and run similarity searches through the Upstash Vector REST API.
+  tags: [search, vectors]
+  pricing_url: https://upstash.com/pricing/vector
+  price: 0.4
+  price_unit: 100,000 requests
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Pay-as-you-go request rate; storage and fixed plans are priced separately.
+mcx-urlbox-apik:
+  tags: [web, screenshots]
+  pricing_url: https://urlbox.com/pricing
+mcx-useapi-apik:
+  tags: [video, generation]
+  pricing_url: https://useapi.net/docs/subscription
+  price: 15
+  price_unit: month
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: First UseAPI subscription. Third-party model provider accounts and their charges are separate.
+mcx-val-town-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://www.val.town/pricing
+mcx-vectara-apik:
+  tags: [search, vectors]
+  pricing_url: https://www.vectara.com/pricing
+mcx-vercel-apik:
+  tags: [cloud, infrastructure]
+  pricing_url: https://vercel.com/pricing
+  price_model: Plan and metered usage
+  price_note: Pro includes usage credits and supports additional pay-as-you-go consumption.
+mcx-voyage-apik:
+  tags: [search, vectors]
+  pricing_url: https://docs.voyageai.com/docs/pricing
+  price: 0.06
+  price_unit: million input tokens
+  currency: USD
+  price_as_of: '2026-11-24'
+  price_note: Voyage AI's voyage-3.5 embedding model. Other embedding and reranking models have separate rates.
+mcx-waterfall-apik:
+  tags: [language-models, inference]
+mcx-wavespeed-apik:
+  tags: [images, generation]
+  pricing_url: https://wavespeed.ai/pricing
+mcx-webflow-apik:
+  tags: [web, publishing]
+  pricing_url: https://webflow.com/pricing
+mcx-webflow-dev-mcp:
+  info: Search Webflow's public developer documentation through its documentation MCP server.
+  tags: [web, documentation]
+  url: https://developers.webflow.com/
+mcx-webflow-mcpo:
+  tags: [web, publishing]
+  pricing_url: https://webflow.com/pricing
+mcx-whatsapp-business-api:
+  tags: [messaging, communications]
+  url: https://developers.facebook.com/docs/whatsapp/
+mcx-x-twitter-apik:
+  tags: [social, analytics]
+mcx-xai-apik:
+  tags: [language-models, inference]
+  pricing_url: https://docs.x.ai/developers/models
+mcx-ydc-apik:
+  info: Retrieve web results and research material through You.com's Search API.
+  tags: [search, web]
+mcx-ynab-apik:
+  tags: [finance, budgeting]
+mcx-youcom-search-mcpk:
+  tags: [search, web]
+mcx-zai-apik:
+  tags: [language-models, inference]
+  pricing_url: https://docs.z.ai/guides/overview/pricing
+mcx-zilliz-api:
+  tags: [search, vectors]
+  pricing_url: https://zilliz.com/pricing
+mcx-zoom-apio:
+  tags: [messaging, communications]
+mcx-zuplo-apik:
+  tags: [cloud, infrastructure]
+mcx-zyphra-apik:
+  tags: [language-models, inference]

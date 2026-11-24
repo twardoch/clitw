@@ -80,11 +80,11 @@ def install(base, name="sample"):
 
 def test_public_catalogue_when_offline_then_all_bindings_are_safe():
     data = catalog()
-    assert len(data) == 258
-    assert sum(bool(tool.base) for tool, _ in providers().values()) == 236
+    assert len(data) == 257
+    assert sum(bool(tool.base) for tool, _ in providers().values()) == 235
     from clitw.openapi.upgrade import RETIRED
 
-    assert len(RETIRED) == 12 and not (set(RETIRED) & data.keys())
+    assert len(RETIRED) == 14 and not (set(RETIRED) & data.keys())
     assert {
         "mcx-chutes-apik",
         "mcx-google-custom-search-apik",
@@ -425,3 +425,36 @@ def test_migrate_from_another_python_path_preserves_the_native_schema(provider, 
     assert migrate_names() == {"mcx-local-old": "mcx-local-old-api"}
     cmd = [*provider_argv("mcx-local-old-api"), "--list", "--json"]
     assert subprocess.run(cmd, capture_output=True, check=False).returncode == 0 and not events
+
+
+@pytest.mark.parametrize("name", ["mcx-lmnt", "mcx-lmnt-apik"])
+@pytest.mark.parametrize("modified", [None, "snapshot", "registration", "launcher", "custom"])
+def test_lmnt_migration_retires_only_frozen_stock(name, modified, tmp_path, monkeypatch):
+    from clitw.openapi import upgrade
+
+    monkeypatch.setenv("CLITW_HOME", str(tmp_path))
+    payload = b'{"info": {"title": "historical test schema"}}'
+    entry = _pre_naming(name, payload)
+    stock = "LMNT — low-latency speech synthesis"
+    entry.update(
+        base_url="https://api.lmnt.com",
+        auth="x-api-key:env:LMNT_API_KEY",
+        description=stock,
+        preset=modified != "custom",
+        customized=modified == "custom",
+    )
+    source = Path(entry["source"])
+    monkeypatch.setattr(upgrade, "LMNT_SNAPSHOT", source.stem if modified != "snapshot" else "f" * 64)
+    if modified == "registration":
+        entry["description"] = "owner description"
+    if modified == "launcher":
+        provider_path(name).write_text("owner executable")
+    registry_dir().mkdir(exist_ok=True, parents=True)
+    (registry_dir() / "openapi.json").write_text(json.dumps({name: entry}))
+    assert cli_install(["--migrate-names"]) == 0
+    assert (name in registry()) == bool(modified)
+    assert provider_path(name).exists() == bool(modified)
+    assert source.read_bytes() == payload
+    if modified:
+        assert registry()[name] == entry
+    assert cli_install(["--migrate-names"]) == 0

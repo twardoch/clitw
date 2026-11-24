@@ -1,13 +1,13 @@
 ---
 name: clitw
-description: Discover and invoke installed OpenAPI operations and MCP tools through clitw. Use when the user asks to find a provider, inspect its arguments, call a tool, or verify the result of a provider command.
+description: Discover and invoke installed OpenAPI operations and MCP tools through clitw. Use when the user asks to find a provider by capability or tag, compare documented prices or personal costs, inspect arguments, call a tool, or verify the result.
 metadata:
   this_file: skills/clitw/SKILL.md
 ---
 
 # Use a clitw provider
 
-1. Run `tw --help` and choose an interface. Use `tw catalog openapi --json` for REST and `tw catalog mcp --json` for MCP. Parse the name-to-description mapping and match the requested service.
+1. Match the user's task with `tw search WORD --json` or `tw search --tag TAG --json`. Inspect the selected name with `tw info NAME --json`. For a list limited to REST or MCP use `tw catalog openapi --json` or `tw catalog mcp --json`. Preserve the canonical name, including its authentication suffix.
 2. Install the selected record with `tw openapi install NAME` or `tw mcp install NAME`. Use the catalog key, including `mcx-`. For a disposable session, set `CLITW_HOME` to an empty temporary directory and keep that setting across commands.
 3. Inspect `tw run NAME --list --json`. Find the operation that implements the requested action, then read `tw run NAME OPERATION --help` to confirm argument names and required values.
 4. Execute exactly the requested operation. Pass each argument as a separate string when using Python or a process API. For a paid, destructive or externally visible action, establish the user's intent and relevant limits first.
@@ -23,6 +23,12 @@ tw run archive-wayback-api get-wayback-v1-available --url https://example.com/
 ```
 
 Read `archived_snapshots.closest.url` and `timestamp` from the result. An empty `archived_snapshots` object means the lookup completed without finding a snapshot.
+
+## Answer a price or metadata question
+
+Read the canonical-name-to-record JSON. Check `price`, `currency`, `price_unit` and `sources.price`. For a bundled public rate, give the documented tier, source link and date when available. Label personal invoice or subscription amounts as the user's own costs. Compare amounts only when the currencies, units and scope match. When only a pricing URL is available, report that link and the unknown amount.
+
+For an existing local metadata file the user wants you to consult, pass its path with `--file`. Use `tw info --data-path` to locate the default. Report only the fields needed to answer the question.
 
 ## Troubleshooting
 

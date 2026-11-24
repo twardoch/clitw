@@ -26,6 +26,15 @@ tw run archive-wayback-api --list --json
 
 The package installs a shell command for each ready-to-use catalog name, including `mcx-archive-wayback-api`. It shares the installed binding with `tw run archive-wayback-api`. Both forms can install a bundled provider on first use. The explicit install above keeps setup output separate from the JSON command listing.
 
+## Find a provider by task
+
+```sh
+tw search archive
+tw info mcx-archive-wayback-api
+```
+
+Search the service descriptions when you know the task but not the command name. Inspect a match for its tags, service links and available pricing. [Service metadata and personal overlays](integrations.md#service-metadata)
+
 ## Look up an archived snapshot
 
 Show the operation's arguments, then ask the Internet Archive about `https://example.com/`. The second command contacts the service.
