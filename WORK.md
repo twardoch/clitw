@@ -8,7 +8,7 @@ this_file: WORK.md
 
 Added offline lookup for 295 service bindings across MCP and OpenAPI. Human-readable and JSON output share the same data, including tags, billing units, dated provider rates and per-field provenance. The bundled inventory includes 176 first-party pricing links and 22 numeric rates with billing units, dates and sources. Users can supply their own YAML in the platform data directory or select a file per invocation. Removed the retired LMNT default.
 
-Verified the commands from a wheel built from the source distribution. An isolated install exposed 273 provider executables and 22 additional recipes. Tests exercised zero and unknown prices, ambiguous names, tag and text search, legacy inventories, local quote overrides and discovery of installed executables without running them. The strict documentation build passed.
+Verified the commands from a wheel built from the source distribution. An isolated install exposed 273 provider executables and 22 additional recipes. Tests exercised zero and unknown prices, ambiguous names, tag and text search, legacy inventories, local quote overrides and discovery of installed executables without running them. The strict documentation build passed. A clean installation check of the documented research filter led to 11 tagged research providers and a regression test.
 
 ## 2026-11-24 — Standalone providers and authorization
 

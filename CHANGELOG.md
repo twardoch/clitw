@@ -4,6 +4,10 @@ this_file: CHANGELOG.md
 
 # Changelog
 
+## 1.0.2
+
+- Tagged web research providers so the documented `tw search --tag research` example returns matches in a clean installation.
+
 ## 1.0.1
 
 - Added offline `tw info` and `tw search` for humans and coding agents. Service records include descriptions, tags, documentation and available provider pricing. Dated quotes identify the billing unit and source.

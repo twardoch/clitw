@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import math
 import re
 from datetime import date
@@ -67,3 +68,24 @@ def test_each_public_amount_has_a_date_unit_currency_first_party_source_and_scop
     assert public_search["price"] == 0 and "public" in public_search["price_note"].lower()
     assert entries["mcx-tavily-apik"]["price"] == entries["mcx-tavily-search-mcpk"]["price"]
     assert entries["mcx-upstash-qstash-apik"]["price_unit"] != entries["mcx-upstash-redis-api"]["price_unit"]
+
+
+def test_research_tag_finds_bundled_services_in_a_clean_profile(tmp_path, monkeypatch, capsys):
+    from clitw import service_cli, service_info
+
+    monkeypatch.setenv("CLITW_HOME", str(tmp_path / "state"))
+    monkeypatch.setattr(service_info, "user_metadata_path", lambda: tmp_path / "envinfo.yaml")
+    assert service_cli.search(["--tag", "research", "--json"]) == 0
+    assert set(json.loads(capsys.readouterr().out)) == {
+        "mcx-exa-apik",
+        "mcx-exa-search-mcpk",
+        "mcx-linkup-apik",
+        "mcx-parallel-apik",
+        "mcx-parallel-search-mcpk",
+        "mcx-parallel-task-mcpk",
+        "mcx-perplexity-apik",
+        "mcx-tavily-apik",
+        "mcx-tavily-search-mcpk",
+        "mcx-ydc-apik",
+        "mcx-youcom-search-mcpk",
+    }

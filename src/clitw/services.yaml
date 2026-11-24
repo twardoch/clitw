@@ -343,7 +343,7 @@ mcx-evetech-api:
   tags: [data, games]
   url: https://developers.eveonline.com/
 mcx-exa-apik:
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://exa.ai/pricing
   price: 7
   price_unit: 1,000 search requests
@@ -351,7 +351,7 @@ mcx-exa-apik:
   price_as_of: '2026-11-24'
   price_note: Auto or fast search with up to ten results per request. Additional results and page summaries are billed separately.
 mcx-exa-search-mcpk:
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://exa.ai/pricing
   price: 7
   price_unit: 1,000 search requests
@@ -610,7 +610,7 @@ mcx-langsearch-mcpk:
   url: https://langsearch.com/
   pricing_url: https://langsearch.com/pricing
 mcx-linkup-apik:
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://www.linkup.so/pricing
 mcx-listclean-apik:
   tags: [email, verification]
@@ -720,21 +720,21 @@ mcx-opper-apik:
 mcx-orcarouter-apik:
   tags: [language-models, inference]
 mcx-parallel-apik:
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://parallel.ai/pricing
 mcx-parallel-search-mcpk:
   info: Search the web and retrieve relevant pages with Parallel's Search MCP server.
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://parallel.ai/pricing
 mcx-parallel-task-mcpk:
   info: Submit structured web research tasks to Parallel's Task MCP server.
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://parallel.ai/pricing
 mcx-parasail-apik:
   tags: [language-models, inference]
   pricing_url: https://www.parasail.io/pricing
 mcx-perplexity-apik:
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://docs.perplexity.ai/docs/getting-started/pricing
 mcx-pexels-apik:
   tags: [images, search]
@@ -948,7 +948,7 @@ mcx-targon-apik:
   tags: [language-models, inference]
 mcx-tavily-apik:
   info: Search and extract web pages for research workflows using the Tavily API.
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://docs.tavily.com/documentation/api-credits
   price: 0.008
   price_unit: API credit
@@ -958,7 +958,7 @@ mcx-tavily-apik:
     on the operation.
 mcx-tavily-search-mcpk:
   info: Run web searches and extract page content through Tavily's MCP server.
-  tags: [search, web]
+  tags: [search, web, research]
   pricing_url: https://docs.tavily.com/documentation/api-credits
   price: 0.008
   price_unit: API credit
@@ -1092,11 +1092,11 @@ mcx-xai-apik:
   pricing_url: https://docs.x.ai/developers/models
 mcx-ydc-apik:
   info: Retrieve web results and research material through You.com's Search API.
-  tags: [search, web]
+  tags: [search, web, research]
 mcx-ynab-apik:
   tags: [finance, budgeting]
 mcx-youcom-search-mcpk:
-  tags: [search, web]
+  tags: [search, web, research]
 mcx-zai-apik:
   tags: [language-models, inference]
   pricing_url: https://docs.z.ai/guides/overview/pricing
